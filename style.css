@@ -1,0 +1,4143 @@
+:root {
+  --bg-start: #ffffff;
+  --bg-end: #f6f5ff;
+
+  /* Күлгін палитра */
+  --primary: #6d28d9;       /* қою күлгін (негізгі) */
+  --primary-soft: #ede9fe;  /* жұмсақ күлгін фон */
+  --accent: #a855f7;        /* ашық, «жанды» күлгін */
+
+  /* Негізгі мәтін түстері */
+  --text-main: #111827;     /* қою, бірақ қара емес */
+  --text-muted: #4b5563;    /* сұр мәтін, түсініктемелер үшін */
+
+  --sidebar-bg: rgba(255, 255, 255, 0.9);
+  --border-soft: rgba(15, 23, 42, 0.06);
+  --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.09);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 16px;      /* шрифт чуть крупнее */
+  line-height: 1.6;     /* более «воздушный» текст */
+  background: radial-gradient(circle at top left, #eef3ff 0, #ffffff 40%, #f8f9fb 100%);
+  color: var(--text-main);
+}
+
+
+/* Контейнер всего приложения */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ВЕРХНЯЯ ПАНЕЛЬ */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px;
+  background: linear-gradient(120deg, #ffffffdd, #f2f4ffdd);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-soft);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.topbar-logo {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: contain;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.2);
+}
+
+.topbar-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.university {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.course {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+/* Кнопка меню для мобильных */
+.menu-toggle {
+  display: none;
+  border: none;
+  background: var(--primary);
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 10px 18px rgba(37, 99, 235, 0.35);
+}
+
+/* ОСНОВНОЙ МАКЕТ: САЙДБАР + КОНТЕНТ */
+.layout {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 290px minmax(0, 1fr);
+  gap: 0;
+  padding: 24px 40px 40px;
+}
+
+/* САЙДБАР */
+.sidebar {
+  background: var(--sidebar-bg);
+  border-radius: 18px;
+  box-shadow: var(--shadow-soft);
+  padding: 20px 18px;
+  border: 1px solid var(--border-soft);
+  position: relative;
+}
+
+/* Меню */
+.menu-title {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li {
+  margin-bottom: 6px;
+}
+
+.menu a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  font-size: 15px;
+  color: var(--text-main);
+  padding: 10px 12px;
+  border-radius: 12px;
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease,
+    color 0.2s ease;
+}
+
+.menu a i {
+  width: 18px;
+  text-align: center;
+  color: #64748b;
+}
+
+.menu a:hover {
+  background: var(--primary-soft);
+  transform: translateX(3px);
+}
+
+.menu a.active {
+  background: linear-gradient(120deg, var(--primary), var(--accent));
+  color: #ffffff;
+  box-shadow: 0 12px 24px rgba(79, 70, 229, 0.45);
+}
+
+.menu a.active i {
+  color: #ffffff;
+}
+
+/* Подменю Әдістер */
+.has-submenu {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.submenu-toggle {
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 10px 12px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  font-size: 15px;
+  color: var(--text-main);
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.submenu-toggle span {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.submenu-toggle i {
+  color: #64748b;
+}
+
+.submenu-toggle:hover {
+  background: #f3f4ff;
+}
+
+.submenu {
+  margin-top: 4px;
+  margin-left: 14px;
+  padding-left: 8px;
+  border-left: 2px solid rgba(148, 163, 184, 0.4);
+  display: none;
+}
+
+.submenu.open {
+  display: block;
+}
+
+.submenu a {
+  font-size: 14px;
+  padding: 8px 10px;
+}
+
+/* поворот стрелки */
+.submenu-toggle .arrow {
+  transition: transform 0.2s ease;
+}
+
+.submenu-toggle.open .arrow {
+  transform: rotate(180deg);
+}
+
+/* ПРАВО: КОНТЕНТ */
+.content {
+  padding-left: 24px;
+}
+
+.content-card {
+  background: linear-gradient(145deg, #ffffff, #f8f9ff);
+  border-radius: 20px;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  padding: 24px 26px 32px;
+  min-height: 480px;
+}
+
+/* Заголовок контента */
+.content-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.breadcrumb {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+/* Секции */
+.section {
+  display: none;
+  animation: fadeIn 0.3s ease-out;
+  min-height: 300px;
+}
+
+.section.visible {
+  display: block;
+}
+
+/* Простые плейсхолдеры, чтобы было видно, что секция загружена */
+.section::before {
+  content: attr(id) " бөлімі";
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* Анимация */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Адаптация под планшет/телефон */
+@media (max-width: 992px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 16px 20px 24px;
+  }
+
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 72px;
+    bottom: 0;
+    width: 260px;
+    transform: translateX(-110%);
+    transition: transform 0.25s ease;
+    border-radius: 0 18px 18px 0;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .content {
+    padding-left: 0;
+    margin-top: 12px;
+  }
+
+  .topbar {
+    padding-inline: 16px;
+  }
+
+  .university {
+    font-size: 14px;
+  }
+
+  .course {
+    font-size: 12px;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+}
+
+/* Очень маленькие экраны */
+@media (max-width: 600px) {
+  .topbar-left {
+    gap: 10px;
+  }
+
+  .topbar-logo {
+    width: 52px;
+    height: 52px;
+  }
+
+  .content-card {
+    padding: 18px 16px 24px;
+  }
+}
+
+/* --- ТИТУЛЬНАЯ СТРАНИЦА --- */
+
+#title::before {
+  content: none; /* убираем надпись "title бөлімі" */
+}
+
+.title-page {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 50px 60px 70px;
+  background: linear-gradient(145deg, #ffffff, #f4f7ff);
+  border-radius: 28px;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  box-shadow: 0 22px 40px rgba(15, 23, 42, 0.12);
+  text-align: center;
+}
+
+.title-top {
+  font-size: 13px;
+  line-height: 1.5;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #6b7280;
+  margin-bottom: 32px;
+}
+
+.title-top div + div {
+  margin-top: 3px;
+}
+
+.title-logo img {
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+  margin: 0 auto 30px;
+  border-radius: 50%;
+  padding: 12px;
+  background: radial-gradient(circle at 30% 30%, #e0f2ff, #2563eb 70%, #0f172a 100%);
+  box-shadow: 0 18px 32px rgba(37, 99, 235, 0.45);
+}
+
+.title-main h1 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.title-main h2 {
+  margin: 10px 0 0;
+  font-size: 22px;
+  font-weight: 700;
+  color: #2563eb; /* красивый синий акцент */
+  letter-spacing: 0.08em;
+}
+
+.title-meta {
+  display: flex;
+  justify-content: space-between;
+  margin: 60px 0 40px;
+  font-size: 15px;
+  color: #4b5563;
+}
+
+.title-meta-col {
+  text-align: left;
+}
+
+.title-meta-col span {
+  display: block;
+}
+
+.meta-placeholder {
+  margin-top: 6px;
+  min-width: 180px;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.7);
+  padding-bottom: 4px;
+}
+
+.title-bottom {
+  font-size: 15px;
+  color: #6b7280;
+}
+
+/* чуть ужимаем отступы на маленьких экранах */
+@media (max-width: 768px) {
+  .title-page {
+    padding: 32px 20px 40px;
+  }
+
+  .title-meta {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .meta-placeholder {
+    min-width: 0;
+  }
+}
+
+/* --- КІРІСПЕ --- */
+
+#intro::before {
+  content: none; /* убираем стандартную надпись "intro бөлімі" */
+}
+
+.intro-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.intro-hero h2 {
+  margin: 0 0 8px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.intro-hero p {
+  margin: 0 0 24px;
+  font-size: 15px;
+  color: #6b7280;
+}
+
+/* Карточка с QR */
+.intro-qr-card {
+  background: linear-gradient(145deg, #ffffff, #f3f6ff);
+  border-radius: 24px;
+  padding: 28px 24px 26px;
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  box-shadow: 0 18px 36px rgba(15, 23, 42, 0.12);
+  margin-bottom: 30px;
+}
+
+.intro-qr-title {
+  font-size: 15px;
+  color: #4b5563;
+  margin-bottom: 14px;
+}
+
+.intro-qr-title span {
+  font-weight: 600;
+  color: #2563eb;
+}
+
+/* Сам QR */
+.intro-qr {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.intro-qr img {
+  width: 240px;
+  height: 240px;
+  border-radius: 24px;
+  background: #ffffff;
+  padding: 14px;
+  box-shadow: 0 18px 32px rgba(37, 99, 235, 0.32);
+}
+
+.intro-qr-caption {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+/* Кнопка-ссылка на YouTube */
+.intro-yt-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: linear-gradient(120deg, #ef4444, #b91c1c);
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 10px 22px rgba(185, 28, 28, 0.45);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.intro-yt-link i {
+  font-size: 16px;
+}
+
+.intro-yt-link:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 30px rgba(185, 28, 28, 0.6);
+}
+
+/* Описание «для чего сайт» */
+.intro-description {
+  text-align: left;
+  margin-top: 10px;
+}
+
+.intro-description h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.intro-description p {
+  margin: 6px 0;
+  font-size: 15px;
+  color: #4b5563;
+}
+
+.intro-description ul {
+  margin: 8px 0 8px 20px;
+  padding: 0;
+  color: #4b5563;
+  font-size: 15px;
+}
+
+.intro-description li {
+  margin-bottom: 4px;
+}
+
+/* Адаптация */
+@media (max-width: 768px) {
+  .intro-qr-card {
+    padding: 22px 16px 20px;
+  }
+
+  .intro-qr img {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+/* --- ТЕОРИЯ: вкладки и оформление --- */
+
+#theory::before {
+  content: none;
+}
+
+.theory-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Вкладки тем */
+.theory-tabs {
+  display: flex;
+  gap: 8px;
+  padding: 4px;
+  border-radius: 999px;
+  background: rgba(226, 232, 240, 0.8);
+}
+
+.theory-tab {
+  flex: 1;
+  border: none;
+  border-radius: 999px;
+  padding: 8px 10px;
+  font-size: 14px;
+  font-weight: 500;
+  background: transparent;
+  color: #4b5563;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
+}
+
+.theory-tab.active {
+  background: linear-gradient(120deg, #4f46e5, #6366f1);
+  color: #ffffff;
+  box-shadow: 0 10px 20px rgba(79, 70, 229, 0.45);
+  transform: translateY(-1px);
+}
+
+/* Один блок темы */
+.theory-topic {
+  display: none;
+  animation: fadeIn 0.25s ease-out;
+}
+
+.theory-topic.visible {
+  display: block;
+}
+
+.theory-text h2 {
+  margin: 0 0 8px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.theory-text h3 {
+  margin: 12px 0 6px;
+  font-size: 17px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.theory-text p {
+  margin: 4px 0 6px;
+  font-size: 15px;
+  color: #4b5563;
+}
+
+.theory-text ul {
+  margin: 4px 0 8px 18px;
+  padding: 0;
+  font-size: 15px;
+  color: #4b5563;
+}
+
+/* placeholder под картинки */
+.image-placeholder {
+  margin: 12px 0;
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px dashed rgba(148, 163, 184, 0.9);
+  background: #f9fafb;
+  color: #6b7280;
+  font-size: 14px;
+  text-align: center;
+}
+
+.image-placeholder img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.18);
+}
+
+/* Блок тестов */
+.theory-tests {
+  margin-top: 12px;
+  padding: 18px 18px 20px;
+  border-radius: 18px;
+  background: linear-gradient(145deg, #ffffff, #f5f7ff);
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  box-shadow: 0 16px 34px rgba(15, 23, 42, 0.12);
+}
+
+.theory-tests h3 {
+  margin: 0 0 10px;
+  font-size: 17px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.test-item {
+  margin-bottom: 10px;
+  padding: 10px 10px 8px;
+  border-radius: 14px;
+  background: #f9fafb;
+  border: 1px solid rgba(209, 213, 219, 0.9);
+}
+
+.test-item:last-of-type {
+  margin-bottom: 14px;
+}
+
+.question {
+  font-size: 15px;
+  font-weight: 500;
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.options {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.option {
+  margin-bottom: 5px;
+  padding: 7px 9px;
+  border-radius: 10px;
+  border: 1px solid rgba(209, 213, 219, 0.9);
+  background: #ffffff;
+  font-size: 14px;
+  color: #374151;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.option:hover {
+  background: #eff6ff;
+  border-color: #60a5fa;
+  box-shadow: 0 8px 16px rgba(37, 99, 235, 0.18);
+}
+
+/* answer-key прячем — только JS читает */
+.answer-key {
+  display: none;
+}
+
+/* состояния ответов */
+.option.chosen {
+  box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.4);
+}
+
+.option.correct {
+  background: #dcfce7;
+  border-color: #22c55e;
+  box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.4);
+}
+
+.option.incorrect {
+  background: #fee2e2;
+  border-color: #ef4444;
+  box-shadow: 0 0 0 1px rgba(239, 68, 68, 0.4);
+}
+
+/* Кнопка очистки теста для темы */
+.test-reset-all {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: none;
+  background: #e5e7eb;
+  color: #374151;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.test-reset-all:hover {
+  background: #d1d5db;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+  .theory-tests {
+    padding: 14px 12px 16px;
+  }
+}
+
+/* --- ӘДІСТЕР (1–5) --- */
+
+.method-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.method-title-block h2 {
+  margin: 0 0 4px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.method-subtitle {
+  margin: 0;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.method-plan h3 {
+  margin: 10px 0 6px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.method-plan ol {
+  margin: 0 0 8px 20px;
+  padding: 0;
+  font-size: 14px;
+  color: #4b5563;
+}
+
+.method-text h3 {
+  margin: 10px 0 4px;
+  font-size: 17px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.method-text p {
+  margin: 4px 0 6px;
+  font-size: 15px;
+  color: #4b5563;
+}
+
+.method-text ul {
+  margin: 4px 0 8px 18px;
+  padding: 0;
+  font-size: 15px;
+  color: #4b5563;
+}
+
+/* для всех плейсхолдеров картинок (ты уже используешь в Теория) */
+.image-placeholder {
+  margin: 12px 0;
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px dashed rgba(148, 163, 184, 0.9);
+  background: #f9fafb;
+  color: #6b7280;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* --- ПРАКТИКАЛЫҚ ЕСЕПТЕР --- */
+
+#practice::before {
+  content: none;
+}
+
+.practice-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.practice-intro h2 {
+  margin: 0 0 6px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.practice-intro p {
+  margin: 4px 0;
+  font-size: 15px;
+  color: #4b5563;
+}
+
+.practice-note {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.practice-block {
+  padding: 18px 18px 20px;
+  border-radius: 18px;
+  background: linear-gradient(145deg, #ffffff, #f5f7ff);
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  box-shadow: 0 16px 34px rgba(15, 23, 42, 0.08);
+}
+
+.practice-block h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.practice-level {
+  margin: 10px 0 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #4b5563;
+}
+
+/* Одна задача */
+.practice-task {
+  margin-bottom: 10px;
+  padding: 10px 10px 8px;
+  border-radius: 12px;
+  background: #f9fafb;
+  border: 1px solid rgba(209, 213, 219, 0.9);
+}
+
+.practice-question {
+  font-size: 15px;
+  font-weight: 500;
+  color: #111827;
+}
+
+/* Ввод + кнопка */
+.practice-input-row {
+  margin-top: 6px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.practice-input {
+  flex: 1;
+  padding: 7px 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(209, 213, 219, 0.9);
+  font-size: 14px;
+}
+
+.practice-input:focus {
+  outline: none;
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.4);
+}
+
+.practice-check {
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(120deg, #4f46e5, #6366f1);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(79, 70, 229, 0.4);
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
+}
+
+.practice-check:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px rgba(79, 70, 229, 0.5);
+}
+
+/* Обратная связь */
+.practice-feedback {
+  margin-top: 4px;
+  font-size: 13px;
+}
+
+.practice-feedback.ok {
+  color: #16a34a;
+}
+
+.practice-feedback.err {
+  color: #dc2626;
+}
+
+/* answer-key прячем от ученика, JS читает */
+.practice-answer-key {
+  display: none;
+}
+
+/* Кнопка очистки блока */
+.practice-reset-block {
+  margin-top: 10px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: none;
+  background: #e5e7eb;
+  color: #374151;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.practice-reset-block:hover {
+  background: #d1d5db;
+  transform: translateY(-1px);
+}
+
+.practice-placeholder-text {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* Для картинок в практических задачах можно использовать уже существующее: */
+.image-placeholder {
+  margin: 12px 0;
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px dashed rgba(148, 163, 184, 0.9);
+  background: #f9fafb;
+  color: #6b7280;
+  font-size: 14px;
+  text-align: center;
+}
+
+.image-placeholder img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.18);
+}
+
+/* --- ТЕСТ БӨЛІМІ --- */
+#test::before {
+  content: none;
+}
+
+.test-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.test-intro {
+  font-size: 14px;
+  color: #4b5563;
+  margin: 4px 0 14px;
+}
+
+/* --- ҮЛГІ ЕСЕПТЕР --- */
+
+#examples::before {
+  content: none;
+}
+
+.examples-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.examples-intro h2 {
+  margin: 0 0 6px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.examples-intro p {
+  margin: 4px 0;
+  font-size: 15px;
+  color: #4b5563;
+}
+
+.examples-block {
+  padding: 18px 18px 20px;
+  border-radius: 18px;
+  background: linear-gradient(145deg, #ffffff, #f5f7ff);
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  box-shadow: 0 16px 34px rgba(15, 23, 42, 0.08);
+}
+
+.examples-block h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.examples-note {
+  margin: 0 0 10px;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+/* --- САЛЫСТЫРУ ОЙЫНЫ --- */
+
+.compare-game {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.compare-row {
+  padding: 10px 10px 8px;
+  border-radius: 12px;
+  background: #f9fafb;
+  border: 1px solid rgba(209, 213, 219, 0.9);
+}
+
+.compare-expression {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.compare-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.compare-btn {
+  width: 40px;
+  height: 32px;
+  border-radius: 999px;
+  border: 1px solid rgba(209, 213, 219, 0.9);
+  background: #ffffff;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  color: #374151;
+  transition: background 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
+}
+
+.compare-btn:hover {
+  background: #eff6ff;
+  box-shadow: 0 6px 12px rgba(37, 99, 235, 0.25);
+  transform: translateY(-1px);
+}
+
+.compare-btn.selected {
+  background: #e0e7ff;
+  box-shadow: 0 0 0 1px rgba(79, 70, 229, 0.7);
+}
+
+.compare-btn.correct-choice {
+  background: #22c55e;
+  color: #ffffff;
+  border-color: #16a34a;
+}
+
+.compare-btn.wrong-choice {
+  background: #ef4444;
+  color: #ffffff;
+  border-color: #b91c1c;
+}
+
+.compare-feedback {
+  text-align: center;
+  font-size: 13px;
+}
+
+.compare-feedback.ok {
+  color: #16a34a;
+}
+
+.compare-feedback.err {
+  color: #dc2626;
+}
+
+/* --- ЖЫЛДАМ ЕСЕПТЕУ ОЙЫНЫ --- */
+
+.speed-game {
+  padding: 12px 12px 14px;
+  border-radius: 14px;
+  background: #f9fafb;
+  border: 1px solid rgba(209, 213, 219, 0.9);
+}
+
+.speed-status {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #374151;
+  margin-bottom: 8px;
+}
+
+.speed-question-box {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 10px 10px 12px;
+  border: 1px solid rgba(209, 213, 219, 0.9);
+}
+
+.speed-question-text {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 6px;
+  text-align: center;
+}
+
+.speed-input-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+#speed-answer {
+  flex: 1;
+  padding: 7px 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(209, 213, 219, 0.9);
+  font-size: 14px;
+}
+
+#speed-answer:focus {
+  outline: none;
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.4);
+}
+
+#speed-check,
+#speed-new {
+  padding: 7px 10px;
+  border-radius: 999px;
+  border: none;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+#speed-check {
+  background: linear-gradient(120deg, #4f46e5, #6366f1);
+  color: #ffffff;
+  box-shadow: 0 10px 20px rgba(79, 70, 229, 0.4);
+}
+
+#speed-new {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+#speed-check:hover {
+  box-shadow: 0 12px 24px rgba(79, 70, 229, 0.5);
+}
+
+#speed-new:hover {
+  background: #d1d5db;
+}
+
+.speed-feedback {
+  margin-top: 4px;
+  font-size: 13px;
+  text-align: center;
+}
+
+.speed-feedback.ok {
+  color: #16a34a;
+}
+
+.speed-feedback.err {
+  color: #dc2626;
+}
+
+/* --- ИНТЕРАКТИВТІ ЖАТТЫҒУЛАР: 3D ОЙЫН --- */
+
+#interactive::before {
+  content: none;
+}
+
+.interactive-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.interactive-wrapper h2 {
+  margin: 0 0 6px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.interactive-intro {
+  margin: 4px 0 12px;
+  font-size: 15px;
+  color: #4b5563;
+}
+
+/* Контейнер для 3D-игры */
+#game3d-container {
+  position: relative;
+  width: 100%;
+  min-height: 380px;
+  border-radius: 20px;
+  background: radial-gradient(circle at top, #e0f2fe, #e5e7eb);
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.25);
+  overflow: hidden;
+}
+
+/* Canvas Three.js внутри контейнера */
+#game3d-container canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Оверлей с текстом поверх игры */
+.game3d-overlay {
+  position: absolute;
+  inset: 0 0 auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  pointer-events: none; /* чтобы не мешать кликам по canvas */
+}
+
+.game3d-status,
+.game3d-help {
+  background: rgba(15, 23, 42, 0.5);
+  color: #f9fafb;
+  font-size: 13px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  backdrop-filter: blur(6px);
+}
+
+.game3d-help {
+  font-size: 12px;
+}
+
+@media (max-width: 768px) {
+  #game3d-container {
+    min-height: 320px;
+  }
+
+  .game3d-overlay {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+}
+
+.game3d-error {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 80%;
+  background: rgba(248, 250, 252, 0.9);
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-size: 14px;
+  color: #b91c1c;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.25);
+}
+
+/* --- 2D ANGRY BIRDS СТИЛІНДЕ ОЙЫН --- */
+
+.interactive-birds {
+  margin-top: 24px;
+}
+
+.interactive-birds h2 {
+  margin: 0 0 6px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #111827;
+}
+
+/* Контейнер игры */
+.bird-game-box {
+  position: relative;
+  margin-top: 10px;
+  border-radius: 20px;
+  background: radial-gradient(circle at top, #fee2e2, #e5e7eb);
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.25);
+  overflow: hidden;
+  min-height: 320px;
+}
+
+/* Canvas 2D игры */
+#bird-game-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Оверлей поверх канваса */
+.bird-game-overlay {
+  position: absolute;
+  inset: 0 0 auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  pointer-events: none;
+}
+
+.bird-score-tag,
+.bird-help-tag {
+  background: rgba(15, 23, 42, 0.55);
+  color: #f9fafb;
+  font-size: 13px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  backdrop-filter: blur(6px);
+}
+
+.bird-help-tag {
+  font-size: 12px;
+}
+
+@media (max-width: 768px) {
+  .bird-game-overlay {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+}
+
+/* --- MINECRAFT-СТИЛЬ ҚҰРЫЛЫС ОЙЫНЫ --- */
+
+.interactive-mc {
+  margin-top: 24px;
+}
+
+.interactive-mc h2 {
+  margin: 0 0 6px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.mc-game-box {
+  position: relative;
+  margin-top: 10px;
+  border-radius: 20px;
+  background: radial-gradient(circle at top, #e0f2fe, #e5e7eb);
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.25);
+  overflow: hidden;
+  min-height: 380px;
+}
+
+/* контейнер для Three.js */
+#mc-container {
+  width: 100%;
+  height: 100%;
+}
+
+#mc-container canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* оверлей поверх игры */
+.mc-overlay {
+  position: absolute;
+  inset: 0 0 auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  pointer-events: none;
+}
+
+.mc-toolbar,
+.mc-help {
+  background: rgba(15, 23, 42, 0.55);
+  color: #f9fafb;
+  font-size: 13px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  backdrop-filter: blur(6px);
+}
+
+/* чтобы по кнопкам можно было кликать */
+.mc-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  pointer-events: auto;
+}
+
+.mc-help {
+  font-size: 12px;
+  pointer-events: auto;
+}
+
+/* кнопки выбора блока */
+.mc-block-button {
+  border: none;
+  border-radius: 999px;
+  padding: 3px 8px;
+  font-size: 12px;
+  cursor: pointer;
+  background: #e5e7eb;
+  color: #111827;
+  transition: background 0.15s ease, color 0.15s ease, transform 0.1s ease;
+}
+
+.mc-block-button:hover {
+  background: #cbd5f5;
+  transform: translateY(-1px);
+}
+
+.mc-block-button.active {
+  background: #22c55e;
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .mc-overlay {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+}
+
+/* --- ГЕОМЕТРИЯ ЗЕРТХАНАСЫ --- */
+
+#geometry::before {
+  content: none;
+}
+
+.geometry-lab {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  gap: 18px;
+  align-items: stretch;
+}
+
+@media (max-width: 960px) {
+  .geometry-lab {
+    flex-direction: column;
+  }
+}
+
+.geo-left {
+  flex: 0 0 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.geo-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.geo-left h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.geo-intro {
+  margin: 0;
+  font-size: 14px;
+  color: #4b5563;
+}
+
+/* Кнопки фигур */
+
+.geo-shapes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.geo-shape-btn {
+  border: none;
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 13px;
+  cursor: pointer;
+  background: #e5e7eb;
+  color: #111827;
+  transition: background 0.15s ease, color 0.15s ease, transform 0.1s ease,
+    box-shadow 0.15s ease;
+}
+
+.geo-shape-btn:hover {
+  background: #dbeafe;
+  box-shadow: 0 6px 12px rgba(59, 130, 246, 0.4);
+  transform: translateY(-1px);
+}
+
+.geo-shape-btn.active {
+  background: linear-gradient(120deg, #4f46e5, #6366f1);
+  color: #ffffff;
+  box-shadow: 0 10px 20px rgba(79, 70, 229, 0.5);
+}
+
+/* Панель параметров */
+
+.geo-panel {
+  padding: 12px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #ffffff, #eef2ff);
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.12);
+}
+
+.geo-panel h3 {
+  margin: 0 0 6px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #111827;
+}
+
+#geo-param-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.geo-param-row {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.geo-param-row label {
+  font-size: 13px;
+  color: #4b5563;
+}
+
+.geo-param-row input[type="range"] {
+  width: 100%;
+}
+
+.geo-param-value {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* Тогглы */
+
+.geo-toggles {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+  color: #374151;
+}
+
+.geo-toggles input {
+  margin-right: 4px;
+}
+
+/* Правая часть: 3D + инфо + тест */
+
+.geo-3d-card,
+.geo-info-card,
+.geo-quiz-card {
+  border-radius: 18px;
+  background: linear-gradient(145deg, #ffffff, #f3f4ff);
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  box-shadow: 0 16px 32px rgba(15, 23, 42, 0.16);
+  padding: 14px;
+}
+
+.geo-3d-card {
+  min-height: 260px;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+}
+
+#geo-main-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.geo-info-card h3 {
+  margin: 0 0 4px;
+  font-size: 17px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.geo-info-card p {
+  margin: 0 0 6px;
+  font-size: 14px;
+  color: #4b5563;
+}
+
+.geo-formula-block {
+  border-radius: 12px;
+  padding: 8px 10px;
+  background: #eef2ff;
+  font-size: 13px;
+  color: #1f2937;
+}
+
+/* Тест */
+
+.geo-quiz-card h3 {
+  margin: 0 0 4px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.geo-quiz-card p {
+  margin: 0 0 6px;
+  font-size: 14px;
+  color: #4b5563;
+}
+
+.geo-quiz-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+#geo-quiz-answer {
+  flex: 1;
+  padding: 7px 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(209, 213, 219, 0.9);
+  font-size: 14px;
+}
+
+#geo-quiz-answer:focus {
+  outline: none;
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.4);
+}
+
+#geo-quiz-check {
+  padding: 7px 12px;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(120deg, #4f46e5, #6366f1);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(79, 70, 229, 0.45);
+}
+
+#geo-quiz-feedback {
+  font-size: 13px;
+}
+
+#geo-quiz-feedback.ok {
+  color: #16a34a;
+}
+
+#geo-quiz-feedback.err {
+  color: #dc2626;
+}
+
+
+/* --- 3D конструктор құрама дене (Геометрия бөлімі) --- */
+
+.geo-builder {
+  margin-top: 22px;
+  border-radius: 22px;
+  padding: 16px 18px;
+  background: linear-gradient(145deg, #eef2ff, #ffffff);
+  box-shadow: 0 18px 36px rgba(148, 163, 184, 0.55);
+  display: flex;
+  gap: 18px;
+  align-items: stretch;
+}
+
+.geo-builder-left {
+  flex: 0 0 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.geo-builder-left h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #4f46e5; /* фиолетовый как ты просил */
+}
+
+.geo-builder-intro {
+  margin: 0;
+  font-size: 14px;
+  color: #4b5563;
+}
+
+.geo-builder-controls {
+  margin-top: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.geo-builder-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 2fr) auto;
+  align-items: center;
+  gap: 8px;
+}
+
+.geo-builder-row label {
+  font-size: 13px;
+  color: #374151;
+}
+
+.geo-builder-row input[type="range"] {
+  width: 100%;
+}
+
+.geo-builder-value {
+  font-size: 12px;
+  color: #6b7280;
+  min-width: 24px;
+  text-align: right;
+}
+
+.geo-builder-hint {
+  margin-top: 6px;
+  font-size: 13px;
+  color: #6b7280;
+  padding: 8px 10px;
+  border-radius: 12px;
+  background: rgba(129, 140, 248, 0.07);
+}
+
+.geo-builder-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.geo-builder-canvas-wrap {
+  flex: 1;
+  min-height: 260px;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  background: radial-gradient(circle at top, #dbeafe, #eff6ff);
+  box-shadow: 0 16px 32px rgba(15, 23, 42, 0.18);
+}
+
+#geo-builder-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.geo-builder-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  border-radius: 14px;
+  background: #eef2ff;
+  padding: 8px 12px;
+  font-size: 13px;
+  color: #111827;
+}
+
+.geo-builder-summary strong {
+  color: #4f46e5;
+}
+
+@media (max-width: 960px) {
+  .geo-builder {
+    flex-direction: column;
+  }
+  .geo-builder-left {
+    flex: none;
+  }
+}
+
+/* --- ГЛОССАРИЙ --- */
+
+#glossary::before {
+  content: none;
+}
+
+.glossary-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.glossary-header h2 {
+  margin: 0 0 4px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.glossary-header p {
+  margin: 0;
+  font-size: 14px;
+  color: #4b5563;
+}
+
+.glossary-main {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 14px;
+}
+
+@media (max-width: 880px) {
+  .glossary-main {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Сайдбар с буквами */
+
+.glossary-sidebar {
+  border-radius: 18px;
+  background: linear-gradient(145deg, #ffffff, #eef2ff);
+  color: #111827;
+  padding: 12px;
+  box-shadow: 0 12px 24px rgba(148, 163, 184, 0.45);
+}
+
+.glossary-sidebar h3 {
+  margin: 0 0 6px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.glossary-letters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.glossary-letter-btn {
+  border: none;
+  border-radius: 999px;
+  padding: 4px 8px;
+  font-size: 12px;
+  cursor: pointer;
+  background: #e5e7eb;
+  color: #111827;
+  transition: background 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
+}
+
+.glossary-letter-btn:hover {
+  background: #dbeafe;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 16px rgba(148, 163, 184, 0.6);
+}
+
+.glossary-letter-btn:hover {
+  background: #dbeafe;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 16px rgba(148, 163, 184, 0.6);
+}
+
+/* можно оставить, если вдруг где-то будем отключать,
+   но сейчас мы кнопки не дизейблим */
+.glossary-letter-btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+/* список карточек справа */
+
+.glossary-list {
+  border-radius: 18px;
+  background: linear-gradient(145deg, #ffffff, #eef2ff);
+  padding: 12px 12px 14px;
+  box-shadow: 0 16px 32px rgba(15, 23, 42, 0.12);
+}
+
+.glossary-list h3 {
+  margin: 0 0 6px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.glossary-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 10px;
+}
+
+.glossary-card {
+  position: relative;
+  padding: 10px 10px 11px;
+  border-radius: 14px;
+  background: #ffffff;
+  border: 1px solid rgba(209, 213, 219, 0.9);
+  box-shadow: 0 8px 16px rgba(15, 23, 42, 0.08);
+  overflow: hidden;
+  animation: glossaryFadeIn 0.25s ease-out;
+}
+
+.glossary-card::before {
+  content: attr(data-letter);
+  position: absolute;
+  right: 10px;
+  top: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  color: rgba(148, 163, 184, 0.9);
+}
+
+.glossary-card-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 4px;
+}
+
+.glossary-card-text {
+  font-size: 13px;
+  color: #4b5563;
+}
+
+@keyframes glossaryFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ФЛЕШ-КАРТОЧКИ + МИЛЫЙ ФОН */
+
+.glossary-flashcards {
+  position: relative;
+  margin-top: 4px;
+  border-radius: 22px;
+  overflow: hidden;
+  background: radial-gradient(circle at top, #ffffff, #eef2ff);
+  padding: 16px 14px 18px;
+  color: #111827;
+}
+
+.glossary-flashcards {
+  position: relative;
+  margin-top: 4px;
+  border-radius: 22px;
+  overflow: hidden;
+  background: radial-gradient(circle at top, #ffffff, #eef2ff);
+  padding: 16px 14px 18px;
+  color: #111827;
+}
+
+.bg-shape {
+  position: absolute;
+  font-size: 22px;
+  opacity: 0.35;
+  animation: floatUp 12s linear infinite;
+}
+
+.bg-star {
+  left: 10%;
+  bottom: -20px;
+  animation-duration: 13s;
+}
+
+.bg-star2 {
+  right: 18%;
+  bottom: -30px;
+  animation-duration: 16s;
+}
+
+.bg-penguin {
+  left: 55%;
+  bottom: -40px;
+  font-size: 26px;
+  animation-duration: 18s;
+}
+
+.bg-bear {
+  left: 25%;
+  bottom: -35px;
+  font-size: 28px;
+  animation-duration: 20s;
+}
+
+.bg-rabbit {
+  right: 8%;
+  bottom: -25px;
+  font-size: 24px;
+  animation-duration: 15s;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.4;
+  }
+  70% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-140%);
+    opacity: 0;
+  }
+}
+
+.flashcard-shell {
+  position: relative;
+  z-index: 1;
+}
+
+.flashcard-shell h3 {
+  margin: 0 0 4px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.flashcard-intro,
+.flashcard-hint {
+  margin: 0 0 8px;
+  font-size: 13px;
+  color: #4b5563;
+}
+
+/* карточка-перевёртыш */
+
+.flashcard {
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+  perspective: 1000px;
+}
+
+.flashcard-inner {
+  position: relative;
+  width: 100%;
+  min-height: 120px;
+  border-radius: 16px;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+  box-shadow: 0 16px 32px rgba(148, 163, 184, 0.7);
+  background: linear-gradient(135deg, #f97316, #fb7185);
+  cursor: pointer;
+}
+
+.flashcard.flipped .flashcard-inner {
+  transform: rotateY(180deg);
+}
+
+.flashcard-face {
+  position: absolute;
+  inset: 0;
+  padding: 10px 12px 12px;
+  border-radius: 16px;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.flashcard-front {
+  color: #f9fafb;
+}
+
+.flashcard-back {
+  color: #0f172a;
+  background: #f9fafb;
+}
+
+.flashcard-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  opacity: 0.9;
+  margin-bottom: 4px;
+}
+
+.flashcard-text {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+/* кнопки */
+
+.flashcard-controls {
+  margin-top: 8px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.flashcard-controls button {
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: none;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  background: linear-gradient(120deg, #4f46e5, #6366f1);
+  color: #f9fafb;
+  transition: background 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
+}
+
+.flashcard-controls button:hover {
+  background: #4338ca;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 18px rgba(79, 70, 229, 0.6);
+}
+
+/* --- МАТЕМАТИКАЛЫҚ ОЙЫН: қысқы процент ойыны --- */
+
+#math-game::before {
+  content: none;
+}
+
+.winter-game {
+  position: relative;
+  border-radius: 24px;
+  background: linear-gradient(180deg, #e0f2fe 0%, #f9fafb 100%);
+  box-shadow: 0 24px 46px rgba(15, 23, 42, 0.22);
+  overflow: hidden;
+  min-height: 420px;
+}
+
+/* контейнер для двух игр */
+.math-games {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* --- ЭМОЦИЯЛЫ ТЕҢДЕУЛЕР ОЙЫНЫ --- */
+
+.emoji-game {
+  border-radius: 24px;
+  background: linear-gradient(135deg, #ffffff, #e0f2fe);
+  box-shadow: 0 18px 36px rgba(15, 23, 42, 0.18);
+  padding: 14px 18px 16px;
+}
+
+.emoji-game-inner {
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.emoji-game-inner h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.emoji-game-intro {
+  margin: 0;
+  font-size: 14px;
+  color: #4b5563;
+}
+
+.emoji-card {
+  margin-top: 6px;
+  border-radius: 18px;
+  background: #f9fafb;
+  border: 1px solid rgba(209, 213, 219, 0.9);
+  box-shadow: 0 14px 28px rgba(15, 23, 42, 0.14);
+  padding: 12px 14px 12px;
+}
+
+.emoji-puzzle-header {
+  font-size: 13px;
+  color: #6b7280;
+  margin-bottom: 6px;
+}
+
+.emoji-puzzle-text {
+  font-size: 20px;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.emoji-answer-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.emoji-answer-row label {
+  font-size: 14px;
+  color: #374151;
+}
+
+#emoji-answer {
+  width: 80px;
+  padding: 4px 8px;
+  border-radius: 10px;
+  border: 1px solid rgba(156, 163, 175, 0.9);
+  font-size: 15px;
+  text-align: center;
+}
+
+#emoji-answer:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 1px rgba(79, 70, 229, 0.4);
+}
+
+#emoji-check {
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(120deg, #4f46e5, #6366f1);
+  color: #f9fafb;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(79, 70, 229, 0.6);
+}
+
+.emoji-feedback {
+  min-height: 18px;
+  font-size: 13px;
+}
+
+.emoji-feedback.ok {
+  color: #16a34a;
+}
+
+.emoji-feedback.err {
+  color: #dc2626;
+}
+
+.emoji-nav {
+  margin-top: 6px;
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.emoji-nav button {
+  flex: 1;
+  padding: 6px 0;
+  border-radius: 999px;
+  border: none;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  background: #e5e7eb;
+  color: #111827;
+  transition: background 0.15s ease, box-shadow 0.15s ease, transform 0.08s ease;
+}
+
+.emoji-nav button:hover {
+  background: #dbeafe;
+  box-shadow: 0 8px 16px rgba(148, 163, 184, 0.8);
+  transform: translateY(-1px);
+}
+
+.winter-game::before,
+.winter-game::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.9) 0, transparent 38%),
+    radial-gradient(circle at 80% 10%, rgba(255, 255, 255, 0.9) 0, transparent 32%);
+  opacity: 0.5;
+}
+
+.winter-game-inner {
+  position: relative;
+  z-index: 1;
+  padding: 14px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* верхняя панель */
+
+.winter-game-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.winter-circle-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 6px 12px rgba(15, 23, 42, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  cursor: default;
+}
+
+#winter-sound-toggle {
+  cursor: pointer;
+}
+
+.winter-progress {
+  flex: 1;
+  max-width: 320px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 10px;
+}
+
+.winter-progress-bar {
+  flex: 1;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.4);
+  overflow: hidden;
+}
+
+.winter-progress-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #facc15, #f97316);
+  transition: width 0.25s ease-out;
+}
+
+.winter-score {
+  font-size: 13px;
+  font-weight: 600;
+  color: #111827;
+}
+
+/* основная часть */
+
+.winter-task-row {
+  display: grid;
+  grid-template-columns: 230px minmax(0, 1fr);
+  gap: 18px;
+  align-items: center;
+  margin-top: 4px;
+}
+
+@media (max-width: 880px) {
+  .winter-task-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.winter-character {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.winter-bubble {
+  position: relative;
+  max-width: 150px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #ffffff;
+  box-shadow: 0 8px 16px rgba(15, 23, 42, 0.18);
+  font-size: 12px;
+  color: #111827;
+}
+
+.winter-bubble::after {
+  content: "";
+  position: absolute;
+  left: 18px;
+  bottom: -6px;
+  width: 12px;
+  height: 12px;
+  background: #ffffff;
+  transform: rotate(45deg);
+}
+
+.winter-avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #ffffff, #60a5fa);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 14px 24px rgba(37, 99, 235, 0.5);
+  overflow: hidden;              /* ОБРЕЗАЕМ ВСЁ ЛИШНЕЕ ПО КРУГУ */
+}
+
+.winter-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;              /* аккуратно вписываем картинку */
+  border-radius: 50%;             /* сама картинка тоже круглая */
+}
+
+/* карточка задачи */
+
+.winter-task-card {
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.18);
+  padding: 14px 16px 12px;
+  font-size: 15px;
+  color: #111827;
+}
+
+.winter-task-line {
+  margin-bottom: 6px;
+}
+
+.winter-task-line:last-child {
+  margin-bottom: 2px;
+}
+
+#winter-answer {
+  width: 110px;
+  max-width: 40%;
+  padding: 4px 8px;
+  border-radius: 10px;
+  border: 1px solid rgba(148, 163, 184, 0.8);
+  font-size: 15px;
+  text-align: center;
+}
+
+#winter-answer:focus {
+  outline: none;
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.5);
+}
+
+.winter-feedback {
+  min-height: 18px;
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+.winter-feedback.ok {
+  color: #16a34a;
+}
+
+.winter-feedback.err {
+  color: #dc2626;
+}
+
+/* Общая карточка для маленьких игр */
+.math-card {
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 16px 32px rgba(15, 23, 42, 0.14);
+  padding: 12px 16px 14px;
+}
+
+.math-card h3 {
+  margin: 0 0 4px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.math-card-intro {
+  margin: 0 0 8px;
+  font-size: 14px;
+  color: #4b5563;
+}
+
+.math-feedback {
+  min-height: 18px;
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+.math-feedback.ok {
+  color: #16a34a;
+}
+
+.math-feedback.err {
+  color: #dc2626;
+}
+
+.math-score-row {
+  margin-top: 2px;
+  font-size: 13px;
+  color: #374151;
+}
+
+/* Жылдам есеп */
+
+.quick-expression {
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.quick-answer-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+}
+
+#quick-answer {
+  width: 80px;
+  padding: 4px 8px;
+  border-radius: 10px;
+  border: 1px solid rgba(156, 163, 175, 0.9);
+  font-size: 15px;
+  text-align: center;
+}
+
+#quick-answer:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 1px rgba(79, 70, 229, 0.4);
+}
+
+#quick-check {
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(120deg, #22c55e, #16a34a);
+  color: #f9fafb;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 10px 18px rgba(22, 163, 74, 0.6);
+}
+
+/* Дұрыс па, бұрыс па? */
+
+.tf-question {
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.tf-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.tf-buttons button {
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: none;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 10px 18px rgba(148, 163, 184, 0.7);
+}
+
+#tf-true {
+  background: #22c55e;
+  color: #f9fafb;
+}
+
+#tf-false {
+  background: #ef4444;
+  color: #f9fafb;
+}
+
+/* Сандарды салыстыр */
+
+.compare-numbers {
+  font-size: 22px;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.compare-numbers span {
+  margin: 0 4px;
+}
+
+.compare-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.compare-buttons button {
+  width: 40px;
+  height: 32px;
+  border-radius: 10px;
+  border: none;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  background: #e5e7eb;
+  box-shadow: 0 8px 16px rgba(148, 163, 184, 0.7);
+  transition: background 0.15s ease, transform 0.08s ease, box-shadow 0.15s ease;
+}
+
+.compare-buttons button:hover {
+  background: #dbeafe;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(148, 163, 184, 0.9);
+}
+
+
+/* нижняя часть: клавиатура и кнопки */
+
+.winter-bottom {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.winter-keypad {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 70px));
+  gap: 6px;
+  justify-content: center;
+}
+
+.winter-keypad button {
+  border: none;
+  border-radius: 10px;
+  padding: 6px 0;
+  font-size: 16px;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 8px 16px rgba(15, 23, 42, 0.22);
+  cursor: pointer;
+  transition: transform 0.08s ease, box-shadow 0.12s ease, background 0.15s ease;
+}
+
+.winter-keypad button.wide {
+  grid-column: span 1;
+  min-width: 80px;
+}
+
+.winter-keypad button:active {
+  transform: translateY(1px);
+  box-shadow: 0 4px 10px rgba(15, 23, 42, 0.4);
+  background: #e5e7eb;
+}
+
+.winter-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 2px;
+}
+
+.winter-primary,
+.winter-secondary {
+  padding: 7px 16px;
+  border-radius: 999px;
+  border: none;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.winter-primary {
+  background: linear-gradient(120deg, #4f46e5, #6366f1);
+  color: #f9fafb;
+  box-shadow: 0 14px 26px rgba(79, 70, 229, 0.6);
+}
+
+.winter-secondary {
+  background: #ffffff;
+  color: #111827;
+  box-shadow: 0 8px 16px rgba(148, 163, 184, 0.7);
+}
+
+/* декор внизу */
+
+.winter-decor {
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 90px;
+  pointer-events: none;
+}
+
+.winter-snow-layer {
+  position: absolute;
+  left: -20%;
+  right: -20%;
+  bottom: 0;
+  height: 60px;
+  background: #f9fafb;
+  border-radius: 50% 50% 0 0;
+}
+
+.winter-tree {
+  position: absolute;
+  right: 22%;
+  bottom: 30px;
+  width: 60px;
+  height: 60px;
+  background: #bae6fd;
+  border-radius: 60% 60% 40% 40%;
+  box-shadow: 0 10px 20px rgba(15, 23, 42, 0.15);
+}
+
+.winter-snowman {
+  position: absolute;
+  right: 8%;
+  bottom: 26px;
+  width: 60px;
+  height: 70px;
+}
+
+.snowman-body {
+  position: absolute;
+  background: #ffffff;
+  box-shadow: 0 8px 16px rgba(148, 163, 184, 0.6);
+}
+
+.snowman-body-big {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  bottom: 0;
+  left: 10px;
+}
+
+.snowman-body-small {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  bottom: 30px;
+  left: 16px;
+}
+
+/* --- ОЙЫНДАР ЖӘНЕ ГЕЙМИФИКАЦИЯ --- */
+
+#games::before {
+  content: none;
+}
+
+.gamify-wrapper {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* фоновые эмодзи */
+
+.gamify-emoji-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  opacity: 0.24;
+}
+
+.gamify-emoji-bg span {
+  position: absolute;
+  font-size: 32px;
+  animation: gamifyFloat 22s linear infinite;
+}
+
+.gamify-emoji-bg span:nth-child(1) { left: 5%;  top: 12%; animation-duration: 18s; }
+.gamify-emoji-bg span:nth-child(2) { left: 20%; top: 70%; animation-duration: 24s; }
+.gamify-emoji-bg span:nth-child(3) { left: 45%; top: 10%; animation-duration: 20s; }
+.gamify-emoji-bg span:nth-child(4) { right: 18%; top: 25%; animation-duration: 26s; }
+.gamify-emoji-bg span:nth-child(5) { right: 8%; bottom: 10%; animation-duration: 21s; }
+.gamify-emoji-bg span:nth-child(6) { left: 35%; bottom: 4%; animation-duration: 25s; }
+.gamify-emoji-bg span:nth-child(7) { left: 70%; bottom: 30%; animation-duration: 23s; }
+
+@keyframes gamifyFloat {
+  0%   { transform: translateY(0); opacity: 0; }
+  10%  { opacity: 0.7; }
+  80%  { opacity: 0.7; }
+  100% { transform: translateY(-60px); opacity: 0; }
+}
+
+/* Лазерный блок уровня */
+
+.gamify-level {
+  position: relative;
+  border-radius: 22px;
+  background: radial-gradient(circle at top left, #4f46e5, #111827);
+  color: #e5e7eb;
+  padding: 14px 16px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 12px;
+  overflow: hidden;
+  box-shadow: 0 22px 44px rgba(15, 23, 42, 0.6);
+}
+
+@media (max-width: 820px) {
+  .gamify-level {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* лазеры */
+
+.gamify-level-laser {
+  position: absolute;
+  left: -20%;
+  right: -20%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #fbbf24, #f97316, transparent);
+  opacity: 0.6;
+  filter: blur(1px);
+}
+
+.gamify-level-laser-top {
+  top: 26%;
+  transform: skewX(-18deg);
+  animation: levelLaserMove 5s linear infinite;
+}
+
+.gamify-level-laser-bottom {
+  bottom: 20%;
+  transform: skewX(18deg);
+  animation: levelLaserMove 7s linear infinite;
+}
+
+@keyframes levelLaserMove {
+  0%   { transform: translateX(-40%) skewX(-18deg); opacity: 0; }
+  30%  { opacity: 0.7; }
+  70%  { opacity: 0.7; }
+  100% { transform: translateX(40%) skewX(-18deg); opacity: 0; }
+}
+
+/* основное содержимое уровня */
+
+.gamify-level-main {
+  position: relative;
+  z-index: 1;
+}
+
+.gamify-level-label {
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+.gamify-level-badge {
+  margin-top: 4px;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.4);
+  box-shadow: 0 10px 20px rgba(15, 23, 42, 0.9);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.gamify-level-badge span {
+  font-size: 20px;
+}
+
+.gamify-level-xp-row {
+  margin-top: 6px;
+  font-size: 13px;
+}
+
+.gamify-level-bar {
+  margin-top: 8px;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.5);
+  overflow: hidden;
+}
+
+.gamify-level-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #facc15, #f97316, #fb7185);
+  box-shadow: 0 0 18px rgba(251, 191, 36, 0.9);
+  transition: width 0.3s ease-out;
+}
+
+/* правая часть уровня */
+
+.gamify-level-side {
+  position: relative;
+  z-index: 1;
+  align-self: center;
+  justify-self: end;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+}
+
+@media (max-width: 820px) {
+  .gamify-level-side {
+    justify-self: flex-start;
+  }
+}
+
+.gamify-level-stat {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.5);
+}
+
+/* Общие стат-карточки */
+
+.gamify-stats {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+}
+
+.gamify-stat-card {
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 14px 28px rgba(148, 163, 184, 0.6);
+  padding: 10px 12px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 8px;
+  align-items: center;
+}
+
+.gamify-stat-emoji {
+  font-size: 22px;
+}
+
+.gamify-stat-number {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.gamify-stat-label {
+  grid-column: 1 / -1;
+  font-size: 13px;
+  color: #4b5563;
+}
+
+/* Достижения */
+
+.gamify-achievements {
+  position: relative;
+  z-index: 1;
+  border-radius: 20px;
+  background: linear-gradient(145deg, #ffffff, #eef2ff);
+  padding: 12px 14px 14px;
+  box-shadow: 0 18px 36px rgba(148, 163, 184, 0.7);
+}
+
+.gamify-achievements h3 {
+  margin: 0 0 4px;
+  font-size: 17px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.gamify-achievements-intro {
+  margin: 0 0 8px;
+  font-size: 14px;
+  color: #4b5563;
+}
+
+.gamify-achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 10px;
+}
+
+.ach-card {
+  position: relative;
+  border-radius: 16px;
+  background: #ffffff;
+  border: 1px solid rgba(209, 213, 219, 0.9);
+  padding: 8px 10px 10px;
+  box-shadow: 0 10px 20px rgba(148, 163, 184, 0.6);
+  overflow: hidden;
+}
+
+.ach-card.ach-complete {
+  border-color: #22c55e;
+  box-shadow: 0 14px 30px rgba(34, 197, 94, 0.7);
+}
+
+.ach-emoji {
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+
+.ach-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 2px;
+}
+
+.ach-desc {
+  font-size: 13px;
+  color: #4b5563;
+  margin-bottom: 6px;
+}
+
+.ach-progress {
+  height: 8px;
+  border-radius: 999px;
+  background: #e5e7eb;
+  overflow: hidden;
+}
+
+.ach-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #22c55e, #4ade80);
+  transition: width 0.3s ease-out;
+}
+
+.ach-progress-text {
+  margin-top: 2px;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* --- ВИДЕОСАБАҚТАР ЖӘНЕ QR-ПЛЕЙЛИСТ --- */
+
+#videos::before {
+  content: none;
+}
+
+.videos-wrapper {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* фоновые эмодзи */
+
+.videos-bg-emojis {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  opacity: 0.22;
+}
+
+.videos-bg-emojis span {
+  position: absolute;
+  font-size: 32px;
+  animation: videosFloat 24s linear infinite;
+}
+
+.videos-bg-emojis span:nth-child(1) { left: 8%;  top: 12%; animation-duration: 18s; }
+.videos-bg-emojis span:nth-child(2) { left: 20%; bottom: 8%; animation-duration: 26s; }
+.videos-bg-emojis span:nth-child(3) { left: 50%; top: 6%;  animation-duration: 22s; }
+.videos-bg-emojis span:nth-child(4) { right: 18%; top: 30%; animation-duration: 20s; }
+.videos-bg-emojis span:nth-child(5) { right: 6%; bottom: 16%; animation-duration: 28s; }
+.videos-bg-emojis span:nth-child(6) { left: 38%; bottom: 4%; animation-duration: 24s; }
+.videos-bg-emojis span:nth-child(7) { left: 70%; top: 60%; animation-duration: 21s; }
+
+@keyframes videosFloat {
+  0%   { transform: translateY(0); opacity: 0; }
+  15%  { opacity: 0.7; }
+  80%  { opacity: 0.7; }
+  100% { transform: translateY(-60px); opacity: 0; }
+}
+
+/* верхний блок */
+
+.videos-top {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+  gap: 16px;
+}
+
+@media (max-width: 900px) {
+  .videos-top {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* QR-карточка */
+
+.videos-qr-card {
+  border-radius: 22px;
+  background: linear-gradient(145deg, #ffffff, #eef2ff);
+  padding: 14px 16px;
+  box-shadow: 0 18px 36px rgba(148, 163, 184, 0.7);
+}
+
+.videos-qr-main {
+  display: grid;
+  grid-template-columns: 160px minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+}
+
+@media (max-width: 640px) {
+  .videos-qr-main {
+    grid-template-columns: 1fr;
+  }
+}
+
+.videos-qr-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 24px;
+  background: radial-gradient(circle at 30% 30%, #ffffff, #dbeafe);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 16px 32px rgba(59, 130, 246, 0.6);
+}
+
+.videos-qr-image img {
+  max-width: 80%;
+  max-height: 80%;
+}
+
+.videos-qr-text h2 {
+  margin: 0 0 4px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.videos-qr-text p {
+  margin: 0 0 8px;
+  font-size: 14px;
+  color: #4b5563;
+}
+
+.videos-channel-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: linear-gradient(120deg, #ef4444, #f97316);
+  color: #f9fafb;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  box-shadow: 0 14px 28px rgba(248, 113, 113, 0.8);
+}
+
+.videos-qr-note {
+  margin-top: 6px;
+  font-size: 13px;
+  color: #4b5563;
+}
+
+.videos-qr-note span {
+  font-weight: 600;
+}
+
+/* основной плеер */
+
+.videos-main-player {
+  position: relative;
+  z-index: 1;
+}
+
+.videos-player-card {
+  border-radius: 22px;
+  background: radial-gradient(circle at top, #e0f2fe, #ffffff);
+  padding: 12px 14px 14px;
+  box-shadow: 0 18px 36px rgba(148, 163, 184, 0.7);
+}
+
+.videos-player-header {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 8px;
+}
+
+.videos-player-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #6b7280;
+}
+
+.videos-player-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.videos-player-frame {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #020617;
+  padding-top: 56.25%; /* 16:9 */
+}
+
+#main-video-iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* орбита */
+
+.videos-orbit-section {
+  position: relative;
+  z-index: 1;
+  border-radius: 22px;
+  background: linear-gradient(145deg, #ffffff, #eef2ff);
+  padding: 12px 14px 18px;
+  box-shadow: 0 18px 36px rgba(148, 163, 184, 0.6);
+}
+
+.videos-orbit-section h3 {
+  margin: 0 0 4px;
+  font-size: 17px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.videos-orbit-intro {
+  margin: 0 0 8px;
+  font-size: 14px;
+  color: #4b5563;
+}
+
+.videos-orbit-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 8px 0 2px;
+}
+
+.videos-orbit-circle {
+  position: relative;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  animation: videoOrbitSpin 40s linear infinite;
+}
+
+@keyframes videoOrbitSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.orbit-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  background-color: #e5e7eb;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 10px 20px rgba(15, 23, 42, 0.35);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border 0.15s ease;
+}
+
+/* 6 позиций по кругу */
+
+.orbit-pos-1 { transform: translate(-50%, -50%) translateY(-110px); }
+.orbit-pos-2 { transform: translate(-50%, -50%) translate(80px, -65px); }
+.orbit-pos-3 { transform: translate(-50%, -50%) translate(80px, 65px); }
+.orbit-pos-4 { transform: translate(-50%, -50%) translateY(110px); }
+.orbit-pos-5 { transform: translate(-50%, -50%) translate(-80px, 65px); }
+.orbit-pos-6 { transform: translate(-50%, -50%) translate(-80px, -65px); }
+
+.orbit-video:hover {
+  transform: translate(-50%, -50%) scale(1.05);
+  box-shadow: 0 14px 26px rgba(37, 99, 235, 0.7);
+}
+
+.orbit-video.active {
+  border: 3px solid #f97316;
+  box-shadow: 0 16px 30px rgba(249, 115, 22, 0.9);
+}
+
+/* === Персонажи на фоне (Интерактивті жаттығулар + Глоссарий) === */
+
+#interactive,
+#glossary {
+  position: relative;
+  overflow: hidden;
+}
+
+#interactive > *:not(.char-layer),
+#glossary > *:not(.char-layer) {
+  position: relative;
+  z-index: 1;
+}
+
+.char-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* базовый стиль персонажа */
+
+.char-layer .char {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 10px rgba(15, 23, 42, 0.45));
+  left: -100px;
+  animation: charRun 18s linear infinite,
+             charJump 1.6s ease-in-out infinite;
+}
+
+/* 5 дорожек по высоте + свои скорости */
+
+.char-layer .c1 {
+  top: 18%;
+  animation-duration: 20s, 1.6s;
+}
+
+.char-layer .c2 {
+  top: 40%;
+  animation-duration: 17s, 1.8s;
+  animation-delay: 2s, 0.3s;
+}
+
+.char-layer .c3 {
+  top: 60%;
+  animation-duration: 22s, 1.5s;
+  animation-delay: 4s, 0.1s;
+}
+
+.char-layer .c4 {
+  top: 75%;
+  animation-duration: 19s, 1.9s;
+  animation-delay: 6s, 0.4s;
+}
+
+.char-layer .c5 {
+  top: 88%;
+  animation-duration: 21s, 1.7s;
+  animation-delay: 8s, 0.2s;
+}
+
+/* для глоссария — немного медленнее */
+
+.char-layer-glossary .char {
+  animation-duration: 26s, 2.0s;
+  opacity: 0.9;
+}
+
+/* движение слева направо по экрану */
+
+@keyframes charRun {
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(calc(100vw + 200px)); /* пробегаем через весь экран */
+    opacity: 0;
+  }
+}
+
+/* подпрыгивания */
+
+@keyframes charJump {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* === Персонажи на фоне (Интерактивті жаттығулар + Глоссарий) === */
+
+/* эти два раздела будут "контейнером" для анимации */
+#interactive,
+#glossary {
+  position: relative;
+  overflow: hidden;
+}
+
+/* контент сверху, персонажи под мышкой не мешают кликам */
+#interactive > *:not(.char-layer),
+#glossary > *:not(.char-layer) {
+  position: relative;
+  z-index: 1;
+}
+
+.char-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5; /* поверх карточек, чтобы их было видно */
+}
+
+/* базовый стиль персонажа */
+.char-layer .char {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  opacity: 0.9;
+  filter: drop-shadow(0 6px 10px rgba(15, 23, 42, 0.45));
+}
+
+/* 5 дорожек + разные скорости/задержки */
+.char-layer .c1 {
+  top: 15%;
+  animation: charMove 20s linear infinite;
+}
+
+.char-layer .c2 {
+  top: 35%;
+  animation: charMove 18s linear infinite;
+  animation-delay: 2s;
+}
+
+.char-layer .c3 {
+  top: 55%;
+  animation: charMove 22s linear infinite;
+  animation-delay: 4s;
+}
+
+.char-layer .c4 {
+  top: 75%;
+  animation: charMove 19s linear infinite;
+  animation-delay: 6s;
+}
+
+.char-layer .c5 {
+  top: 88%;
+  animation: charMove 21s linear infinite;
+  animation-delay: 8s;
+}
+
+/* для глоссария сделаем движение чуть медленнее */
+.char-layer-glossary .c1 { animation-duration: 24s; }
+.char-layer-glossary .c2 { animation-duration: 22s; }
+.char-layer-glossary .c3 { animation-duration: 26s; }
+.char-layer-glossary .c4 { animation-duration: 23s; }
+.char-layer-glossary .c5 { animation-duration: 25s; }
+
+/* один простой ключевой кадр: персонажи плывут слева направо по всему экрану */
+@keyframes charMove {
+  0% {
+    transform: translateX(-120px);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(110vw);
+    opacity: 0;
+  }
+}
+
+/* ===== Видеосабақтар және QR-плейлист ===== */
+
+.videos-layout {
+  display: grid;
+  grid-template-columns: minmax(260px, 320px) minmax(0, 1fr);
+  gap: 24px;
+  margin-top: 16px;
+  align-items: stretch;
+}
+
+.videos-qr-card {
+  background: linear-gradient(145deg, #eff6ff, #e0f2fe);
+  border-radius: 24px;
+  padding: 18px;
+  box-shadow: 0 18px 40px rgba(148, 163, 184, 0.35);
+  display: flex;
+  align-items: stretch;
+}
+
+.qr-card-inner {
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 16px 16px 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.qr-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1f2933;
+}
+
+.qr-code-yt {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  border-radius: 20px;
+  background: radial-gradient(circle at 10% 10%, #0ea5e9, #1d4ed8);
+  display: grid;
+  place-items: center;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.qr-dot {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  background: rgba(248, 250, 252, 0.96);
+}
+
+/* просто разбросали «квадратики» по QR */
+.qr-dot.d1 { top: 18px; left: 18px; }
+.qr-dot.d2 { top: 18px; right: 22px; }
+.qr-dot.d3 { bottom: 20px; left: 24px; }
+.qr-dot.d4 { top: 60px; left: 60px; }
+.qr-dot.d5 { top: 50px; right: 50px; }
+.qr-dot.d6 { bottom: 52px; right: 40px; }
+.qr-dot.d7 { bottom: 30px; left: 70px; }
+.qr-dot.d8 { top: 32px; left: 96px; }
+.qr-dot.d9 { bottom: 36px; right: 80px; }
+
+.qr-text {
+  font-size: 13px;
+  color: #4b5563;
+  line-height: 1.4;
+}
+
+.primary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.45);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.primary-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 32px rgba(37, 99, 235, 0.55);
+}
+
+.videos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+}
+
+.video-item {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  padding: 12px 12px 16px;
+  box-shadow: 0 14px 32px rgba(148, 163, 184, 0.35);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.video-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.video-frame {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #000;
+  aspect-ratio: 16 / 9;
+}
+
+.video-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.videos-hint {
+  margin-top: 18px;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+/* адаптив */
+@media (max-width: 900px) {
+  .videos-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .videos-qr-card {
+    order: -1;
+  }
+}
+
+/* ===== Практикалық есептер ===== */
+.practice-topic {
+  background: #f9fafb;
+  padding: 18px 20px;
+  border-radius: 20px;
+  margin-bottom: 28px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+}
+
+.practice-topic h3 {
+  margin-bottom: 12px;
+  color: #1e3a8a;
+}
+
+.practice-task {
+  background: white;
+  border-radius: 14px;
+  padding: 10px 14px;
+  margin-bottom: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.practice-task.correct {
+  border-left: 6px solid #16a34a;
+  background: #ecfdf5;
+}
+
+.practice-task.wrong {
+  border-left: 6px solid #dc2626;
+  background: #fef2f2;
+}
+
+.practice-task input {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  width: 150px;
+  margin-right: 8px;
+}
+
+.practice-task button {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: none;
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.practice-task button:hover {
+  background: linear-gradient(135deg, #1d4ed8, #3730a3);
+}
+
+/* === ГЛОБАЛЬНАЯ ТИПОГРАФИКА: ЗАГОЛОВКИ И ТЕКСТ === */
+
+/* Күлгін заголовоктар */
+.section h1,
+.section h2,
+.section h3,
+.content-card h1,
+.content-card h2,
+.content-card h3 {
+  color: var(--accent);
+}
+
+/* Негізгі мәтін: сәл үлкен және қою */
+.section p,
+.section li,
+.content-card p,
+.content-card li {
+  font-size: 15px;
+  color: var(--text-main);
+}
+
+/* Қосымша, екінші деңгейдегі мәтін */
+.section .text-muted,
+.small-hint,
+.practice-note,
+.test-intro {
+  color: var(--text-muted);
+}
+
+/* === Видеосабақтар және QR-плейлист — современный дизайн === */
+
+#videos .section-subtitle {
+  max-width: 620px;
+}
+
+/* Общий лейаут: слева QR, справа 4 видео */
+.videos-layout {
+  display: grid;
+  grid-template-columns: minmax(260px, 320px) minmax(0, 1fr);
+  gap: 24px;
+  margin-top: 18px;
+  align-items: stretch;
+}
+
+/* Левая карточка с QR */
+.videos-qr-card {
+  position: relative;
+  background: linear-gradient(145deg, #e0f2fe, #ede9fe);
+  border-radius: 28px;
+  padding: 18px 18px 20px;
+  box-shadow: 0 20px 40px rgba(148, 163, 184, 0.35);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.videos-qr-card h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.videos-qr-img {
+  display: flex;
+  justify-content: center;
+  margin-top: 4px;
+}
+
+.videos-qr-img img {
+  width: 210px;
+  height: 210px;
+  border-radius: 26px;
+  background: #ffffff;
+  padding: 10px;
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.25);
+  object-fit: contain;
+}
+
+.videos-qr-text p {
+  font-size: 14px;
+  margin: 10px 0;
+  color: var(--text-main);
+}
+
+.videos-qr-note {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* Кнопка "Арнаға өту" */
+.videos-channel-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, #fb923c, #f97316);
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  box-shadow: 0 14px 32px rgba(248, 113, 22, 0.45);
+  margin-top: 4px;
+}
+
+.videos-channel-btn i {
+  font-size: 18px;
+}
+
+.videos-channel-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 20px 40px rgba(248, 113, 22, 0.55);
+}
+
+/* Правая часть: сетка из 4-х видео */
+.videos-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.video-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 24px;
+  padding: 10px 12px 14px;
+  box-shadow: 0 18px 40px rgba(148, 163, 184, 0.35);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.video-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+/* Рамка видео */
+.video-frame {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #0f172a;
+  aspect-ratio: 16 / 9; /* всегда аккуратное соотношение */
+}
+
+.video-frame iframe,
+.video-frame img {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+  object-fit: cover;
+}
+
+/* Подсказка внизу раздела */
+.videos-note {
+  margin-top: 18px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* Адаптив: на узких экранах QR сверху, видео ниже одной колонкой */
+@media (max-width: 980px) {
+  .videos-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .videos-qr-card {
+    order: -1;
+  }
+
+  .videos-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* === ГЛОССАРИЙ – Қосымша анимациялық блоктар === */
+
+.glossary-extra {
+  margin-top: 28px;
+  padding: 20px 22px 22px;
+  border-radius: 26px;
+  background: linear-gradient(135deg, #eef2ff 0%, #ffffff 38%, #e0f2fe 100%);
+  box-shadow: 0 18px 40px rgba(148, 163, 184, 0.35);
+  position: relative;
+  overflow: hidden;
+}
+
+.glossary-extra h3 {
+  margin: 0 0 6px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.glossary-extra-subtitle {
+  margin: 0 0 16px;
+  font-size: 14px;
+  color: var(--text-muted);
+  max-width: 720px;
+}
+
+.glossary-extra-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+/* Карточка */
+.glossary-extra-card {
+  position: relative;
+  padding: 12px 12px 14px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 10px 22px rgba(148, 163, 184, 0.35);
+  overflow: hidden;
+  transform: translateY(0);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+  animation: glossaryFloat 7s ease-in-out infinite;
+}
+
+.glossary-extra-card h4 {
+  margin: 0 0 6px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.glossary-extra-card p {
+  margin: 0;
+  font-size: 13px;
+  color: #4b5563;
+}
+
+/* Иконка в кружочке */
+.glossary-extra-card .extra-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  margin-bottom: 4px;
+  box-shadow: 0 8px 18px rgba(148, 163, 184, 0.35);
+}
+
+/* Небольшие отличия по цвету для каждого блока */
+.extra-num     .extra-icon { background: #eef2ff; }
+.extra-decimal .extra-icon { background: #fef3c7; }
+.extra-percent .extra-icon { background: #fee2e2; }
+.extra-geo     .extra-icon { background: #dcfce7; }
+.extra-func    .extra-icon { background: #e0f2fe; }
+.extra-game    .extra-icon { background: #fae8ff; }
+
+/* Hover-эффект: «подпрыгивание» и усиленная тень */
+.glossary-extra-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 18px 36px rgba(148, 163, 184, 0.55);
+  background: rgba(255, 255, 255, 0.98);
+}
+
+/* Плавающая анимация для карточек (чуть-чуть, не навязчиво) */
+@keyframes glossaryFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+/* Небольшие сдвиги по фазе, чтобы не прыгали одновременно */
+.glossary-extra-card:nth-child(1) { animation-delay: 0s; }
+.glossary-extra-card:nth-child(2) { animation-delay: 0.6s; }
+.glossary-extra-card:nth-child(3) { animation-delay: 1.2s; }
+.glossary-extra-card:nth-child(4) { animation-delay: 1.8s; }
+.glossary-extra-card:nth-child(5) { animation-delay: 2.4s; }
+.glossary-extra-card:nth-child(6) { animation-delay: 3.0s; }
+
+/* Адаптив для узких экранов */
+@media (max-width: 960px) {
+  .glossary-extra-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .glossary-extra-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+#geometry .geometry-lab {
+  margin-bottom: 24px;
+}
+
+#geometry .geo-builder {
+  margin-top: 0; /* если хочешь плотно, можно 8–12px */
+}
+

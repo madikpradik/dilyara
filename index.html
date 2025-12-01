@@ -1,0 +1,2436 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Электронды оқулық — 5-сынып</title>
+
+  <!-- Шрифты (можешь убрать, если не нужно) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Иконки -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Стили -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+
+    <!-- ВЕРХНЯЯ ШАПКА -->
+    <header class="topbar">
+      <div class="topbar-left">
+        <img src="logo/logo.png" alt="Эмблема" class="topbar-logo">
+        <div class="topbar-text">
+          <div class="university">
+            Е. А. Бөкетов атындағы Қарағанды мемлекеттік университеті
+          </div>
+          <div class="course">
+            5 сынып математика сабағында оқушылардың танымдық қызығушылығын арттыру әдістер
+          </div>
+        </div>
+      </div>
+
+      <!-- Кнопка меню для телефона -->
+      <button class="menu-toggle" id="menuToggle" aria-label="Боктық менюді ашу">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </header>
+
+    <!-- ОСНОВНОЙ МАКЕТ -->
+    <main class="layout">
+      <!-- ЛЕВАЯ ПАНЕЛЬ -->
+      <aside class="sidebar" id="sidebar">
+        <nav class="menu">
+          <div class="menu-title">Мәзір</div>
+          <ul>
+            <li><a href="#" data-target="title" class="active">
+              <i class="fa-solid fa-house"></i> Титулдық бет
+            </a></li>
+
+            <li><a href="#" data-target="intro">
+              <i class="fa-solid fa-book-open"></i> Кіріспе
+            </a></li>
+
+            <li><a href="#" data-target="theory">
+              <i class="fa-solid fa-lightbulb"></i> Теория
+            </a></li>
+
+            <!-- ӘДІСТЕР с подменю -->
+            <li class="has-submenu">
+              <button class="submenu-toggle" id="methodsToggle">
+                <span><i class="fa-solid fa-flask"></i> Әдістер</span>
+                <i class="fa-solid fa-chevron-down arrow"></i>
+              </button>
+              <ul class="submenu" id="methodsSubmenu">
+                <li><a href="#" data-target="method1">1-Әдіс</a></li>
+                <li><a href="#" data-target="method2">2-Әдіс</a></li>
+                <li><a href="#" data-target="method3">3-Әдіс</a></li>
+                <li><a href="#" data-target="method4">4-Әдіс</a></li>
+                <li><a href="#" data-target="method5">5-Әдіс</a></li>
+              </ul>
+            </li>
+
+            <li><a href="#" data-target="test">
+              <i class="fa-solid fa-pen-to-square"></i> Деңгейлік Тест
+            </a></li>
+
+            <li><a href="#" data-target="practice">
+              <i class="fa-solid fa-check-double"></i> Практикалық есептер
+            </a></li>
+
+            <li><a href="#" data-target="interactive">
+              <i class="fa-solid fa-mouse-pointer"></i> Интерактивті жаттығулар
+            </a></li>
+
+            <li><a href="#" data-target="geometry">
+              <i class="fa-solid fa-draw-polygon"></i> Геометрия бөлімі
+            </a></li>
+
+            <li><a href="#" data-target="glossary">
+              <i class="fa-solid fa-language"></i> Глоссарий
+            </a></li>
+
+            <li><a href="#" data-target="math-game">
+              <i class="fa-solid fa-puzzle-piece"></i> Математикалық ойын
+            </a></li>
+
+            <li><a href="#" data-target="games">
+              <i class="fa-solid fa-gamepad"></i> Ойындар және геймификация
+            </a></li>
+
+            <li><a href="#" data-target="videos">
+              <i class="fa-solid fa-video"></i> Видеосабақтар және QR-плейлист
+            </a></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- ПРАВАЯ ЧАСТЬ: КОНТЕНТ -->
+      <section class="content">
+        <div class="content-card">
+          <header class="content-header">
+            <div class="breadcrumb" id="breadcrumb">Титулдық бет</div>
+          </header>
+
+          <!-- Блоки разделов: сейчас пустые, ты сам заполнишь текстом -->
+<article id="title" class="section visible">
+  <div class="title-page">
+    <div class="title-top">
+      <div>ҚАЗАҚСТАН РЕСПУБЛИКАСЫНЫҢ БІЛІМ ЖӘНЕ ҒЫЛЫМ МИНИСТРЛІГІ</div>
+      <div>Е. А. Бөкетов атындағы Қарағанды мемлекеттік университеті</div>
+      <div>Математика және ақпараттық технологиялар факультеті</div>
+      <div>Математиканы оқыту әдістемесі кафедрасы</div>
+    </div>
+
+    <div class="title-logo">
+      <img src="logo/logo.png" alt="Эмблема">
+    </div>
+
+    <div class="title-main">
+      <h1>МӘТЕМАТИКА ПӘНІ БОЙЫНША</h1>
+      <h2>5-СЫНЫПҚА АРНАЛҒАН ЭЛЕКТРОНДЫҚ ОҚУЛЫҚ</h2>
+    </div>
+
+    <div class="title-meta">
+      <div class="title-meta-col">
+        <span>Орындаған:</span>
+        <span class="meta-placeholder">Муканова Диляра</span>
+      </div>
+      <div class="title-meta-col">
+        <span>Қабылдаған:</span>
+        <span class="meta-placeholder">Исаева Айгүл Қойшыбаевна</span>
+      </div>
+    </div>
+
+    <div class="title-bottom">
+      <div>Қарағанды, 2025</div>
+    </div>
+  </div>
+</article>
+
+
+<article id="intro" class="section">
+  <div class="intro-wrapper">
+    <div class="intro-hero">
+      <h2>Кіріспе</h2>
+      <p>
+        Бұл электрондық оқулықты тиімді пайдалану үшін төмендегі YouTube арнасына жазылып,
+        видеосабақтарды қарап шығуыңызға болады.
+      </p>
+    </div>
+
+    <div class="intro-qr-card">
+      <div class="intro-qr-title">
+        YouTube арнасы: <span>Dilyara Mukanova</span>
+      </div>
+
+      <!-- QR-код напрямую генерируется по ссылке на канал -->
+      <div class="intro-qr">
+        <a href="https://youtube.com/channel/UCaZFwyjoJU-go0N2AQn6cjQ?si=B9HZ--H4jgR33qSu" target="_blank">
+          <img
+            src="http://qrcoder.ru/code/?https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3Deil5EuUH1lM&4&0"
+            alt="QR-код"
+          />
+        </a>
+        <div class="intro-qr-caption">
+          Арнаны ашу үшін QR-кодты сканерлеңіз немесе төмендегі сілтемені басыңыз
+        </div>
+      </div>
+
+      <a class="intro-yt-link"
+         href="https://www.youtube.com/@mektep_online_matematika"
+         target="_blank">
+        <i class="fa-brands fa-youtube"></i>
+        Арнага оту
+      </a>
+    </div>
+
+    <div class="intro-description">
+      <h3>Бұл сайт не үшін қажет?</h3>
+      <p>
+        Бұл платформа 5-сынып оқушыларына математика пәнін заманауи цифрлық форматта
+        меңгеруге көмектесу үшін жасалған. Мұнда:
+      </p>
+      <ul>
+        <li>теориялық материалдар түсінікті тілде беріледі;</li>
+        <li>әр түрлі әдістер бойынша есеп шығару жолдары көрсетіледі;</li>
+        <li>тестілеу арқылы өз біліміңізді тексеруге болады;</li>
+        <li>интерактивті жаттығулар, геометрия бөлімі, ойындар және видеосабақтар біріктірілген.</li>
+      </ul>
+      <p>
+        Негізгі мақсат — оқушылардың қызығушылығын арттырып, математикаға деген
+        сенімділігін күшейту және мұғалімдер мен ата-аналарға қосымша көмекші құрал ұсыну.
+      </p>
+    </div>
+  </div>
+</article>
+
+
+<article id="theory" class="section">
+  <div class="theory-wrapper">
+
+    <!-- Вкладки тем -->
+    <div class="theory-tabs">
+      <button class="theory-tab active" data-topic="nat">Натурал сандар</button>
+      <button class="theory-tab" data-topic="dec">Ондық бөлшектер</button>
+      <button class="theory-tab" data-topic="perc">Проценттер</button>
+      <button class="theory-tab" data-topic="poly">Көпбұрыштар</button>
+    </div>
+
+    <!-- ===== ТАҚЫРЫП 1: НАТУРАЛ САНДАР ===== -->
+    <div class="theory-topic visible" id="theory-nat">
+      <div class="theory-text">
+        <h2>Натурал сандар</h2>
+
+        <p><strong>Жоспар:</strong></p>
+        <ul>
+          <li>Натурал сандар ұғымы</li>
+          <li>Натурал сандардың разрядтары</li>
+          <li>Цифр және сан</li>
+          <li>Сандарды салыстыру</li>
+        </ul>
+
+<div class="image-placeholder">
+  <img src="img/нат1.png" alt="Натурал сандарға арналған көрнекі сурет">
+</div>
+
+        <h3>1. Натурал сандар дегеніміз не?</h3>
+        <p>
+          Натурал сандар – санауға және заттардың мөлшерін белгілеуге қолданылатын сандар:
+          1, 2, 3, 4, 5, … осылай шексіз жалғасады. 0 натурал санға кірмейді.
+        </p>
+        <p>Негізгі қасиеті: натурал сандар әрқашан оң болады және саны шексіз. :contentReference[oaicite:0]{index=0}</p>
+
+        <h3>2. Натурал сандардың разрядтары</h3>
+        <p>
+          Көп таңбалы сан әр цифрдың тұрған орнына байланысты оқылады. Мысалы, 75 356 санының разрядтары:
+        </p>
+        <ul>
+          <li>7 – он мыңдық</li>
+          <li>5 – мыңдық</li>
+          <li>3 – жүздік</li>
+          <li>5 – ондық</li>
+          <li>6 – бірлік</li>
+        </ul>
+        <p>Разрядқа жіктеу: 75 356 = 70 000 + 5 000 + 300 + 50 + 6</p>
+
+        <h3>3. Цифр және сан</h3>
+        <p>
+          Цифр – бір таңба. Цифрлар: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9.  
+          Сан – бір немесе бірнеше цифрдан тұратын белгі.
+        </p>
+        <p>Мысалдар:</p>
+        <ul>
+          <li>5 – сан (бір цифрдан тұрады)</li>
+          <li>28 – сан (2 және 8 цифрларынан құралған)</li>
+          <li>304 – сан (3, 0, 4 цифрларынан тұрады)</li>
+        </ul>
+
+        <h3>4. Сандарды салыстыру</h3>
+        <p>
+          Көп таңбалы санның цифрлары көп болса, ол үлкен болады. Мысалы, 456 &gt; 89.  
+          Егер цифр саны бірдей болса, солдан бастап салыстырамыз:
+          475 &gt; 468, себебі жүздікте 4 = 4, ал ондықта 7 &gt; 6. :contentReference[oaicite:1]{index=1}
+        </p>
+      </div>
+
+      <div class="theory-tests">
+        <h3>Тест: Натурал сандар</h3>
+
+        <!-- Сұрақ 1 -->
+        <div class="test-item">
+          <div class="question">1. Натурал сандар қай саннан басталады?</div>
+          <ul class="options">
+            <li class="option">A) 0</li>
+            <li class="option">B) –1</li>
+            <li class="option">C) 1</li>
+            <li class="option">D) 2</li>
+          </ul>
+          <div class="answer-key">Дұрыс жауап: C</div>
+        </div>
+
+        <!-- Сұрақ 2 -->
+        <div class="test-item">
+          <div class="question">2. Төмендегінің қайсысы цифр?</div>
+          <ul class="options">
+            <li class="option">A) 14</li>
+            <li class="option">B) 7</li>
+            <li class="option">C) 36</li>
+            <li class="option">D) 105</li>
+          </ul>
+          <div class="answer-key">Дұрыс жауап: B</div>
+        </div>
+
+        <!-- 3 -->
+        <div class="test-item">
+          <div class="question">3. 48 256 санын қалай оқимыз?</div>
+          <ul class="options">
+            <li class="option">A) Қырық сегіз екі жүз елу алты</li>
+            <li class="option">B) Қырық сегіз мың екі жүз алты</li>
+            <li class="option">C) Қырық сегіз жүз елу алты</li>
+            <li class="option">D) Қырық сегіз мың екі жүз елу алты</li>
+          </ul>
+          <div class="answer-key">Дұрыс жауап: D</div>
+        </div>
+
+        <!-- 4 -->
+        <div class="test-item">
+          <div class="question">4. Қай сан үлкен? 536 ○ 563</div>
+          <ul class="options">
+            <li class="option">A) 536 &gt; 563</li>
+            <li class="option">B) 536 &lt; 563</li>
+            <li class="option">C) 536 = 563</li>
+            <li class="option">D) Екеуі тең</li>
+          </ul>
+          <div class="answer-key">Дұрыс жауап: B</div>
+        </div>
+
+        <!-- 5 -->
+        <div class="test-item">
+          <div class="question">5. 75 356 санындағы мыңдық разрядтың цифры?</div>
+          <ul class="options">
+            <li class="option">A) 7</li>
+            <li class="option">B) 3</li>
+            <li class="option">C) 5</li>
+            <li class="option">D) 6</li>
+          </ul>
+          <div class="answer-key">Дұрыс жауап: C</div>
+        </div>
+
+        <!-- 6 -->
+        <div class="test-item">
+          <div class="question">6. 4 205 санын разрядқа дұрыс жіктеу:</div>
+          <ul class="options">
+            <li class="option">A) 4 000 + 200 + 5</li>
+            <li class="option">B) 400 + 200 + 5</li>
+            <li class="option">C) 4 000 + 20 + 5</li>
+            <li class="option">D) 40 + 200 + 5</li>
+          </ul>
+          <div class="answer-key">Дұрыс жауап: A</div>
+        </div>
+
+        <!-- 7 -->
+        <div class="test-item">
+          <div class="question">7. 57 санын ондыққа дөңгелекте:</div>
+          <ul class="options">
+            <li class="option">A) 40</li>
+            <li class="option">B) 50</li>
+            <li class="option">C) 60</li>
+            <li class="option">D) 70</li>
+          </ul>
+          <div class="answer-key">Дұрыс жауап: C</div>
+        </div>
+
+        <!-- 8 -->
+        <div class="test-item">
+          <div class="question">8. Салыстыр: 6 480 ○ 6 408</div>
+          <ul class="options">
+            <li class="option">A) 6 480 &lt; 6 408</li>
+            <li class="option">B) 6 480 &gt; 6 408</li>
+            <li class="option">C) Екеуі тең</li>
+            <li class="option">D) Салыстыру мүмкін емес</li>
+          </ul>
+          <div class="answer-key">Дұрыс жауап: B</div>
+        </div>
+
+        <!-- 9 -->
+        <div class="test-item">
+          <div class="question">9. Төмендегінің қайсысы сан?</div>
+          <ul class="options">
+            <li class="option">A) 9</li>
+            <li class="option">B) 8</li>
+            <li class="option">C) 503</li>
+            <li class="option">D) 7</li>
+          </ul>
+          <div class="answer-key">Дұрыс жауап: C</div>
+        </div>
+
+        <!-- 10 -->
+        <div class="test-item">
+          <div class="question">10. “Жеті мың екі жүз он бес” санын жазыңдар:</div>
+          <ul class="options">
+            <li class="option">A) 7 205</li>
+            <li class="option">B) 7 251</li>
+            <li class="option">C) 7 215</li>
+            <li class="option">D) 7 125</li>
+          </ul>
+          <div class="answer-key">Дұрыс жауап: C</div>
+        </div>
+
+        <button type="button" class="test-reset-all">
+          Жауаптарды тазалау (осы тақырып бойынша)
+        </button>
+      </div>
+    </div>
+
+    <!-- ===== ТАҚЫРЫП 2: ОНДЫҚ БӨЛШЕКТЕР ===== -->
+    <div class="theory-topic" id="theory-dec">
+      <div class="theory-text">
+        <h2>Ондық бөлшектер</h2>
+
+        <p><strong>Жоспар:</strong></p>
+        <ul>
+          <li>Ондық бөлшек дегеніміз...</li>
+          <li>Ондық бөлшектерді оқу</li>
+          <li>Ондық бөлшектерді жазу</li>
+          <li>Ондық бөлшектерді салыстыру</li>
+        </ul>
+
+<div class="image-placeholder">
+  <img src="img/нат6.png" alt="Ондық бөлшектерге арналған сурет">
+</div>
+
+        <h3>1. Ондық бөлшек дегеніміз...</h3>
+        <p>
+          Ондық бөлшек — бүтін сан мен бөлшек бөлігін үтір арқылы бөлетін сан.
+          Ондық бөлшек бүтін сан мен бөлшектен тұрады. :contentReference[oaicite:2]{index=2}
+        </p>
+
+        <h3>2. Ондық бөлшектерді оқу</h3>
+        <p>Бүтін бөлігін оқу → үтір → бөлшек бөлігін оқу.</p>
+        <p>Мысалдар:</p>
+        <ul>
+          <li>4,56 → «төрт бүтін елу алты жүздік»</li>
+          <li>0,03 → «нөл бүтін үш жүздік»</li>
+          <li>7,2 → «жеті бүтін екі ондық»</li>
+        </ul>
+
+        <h3>3. Ондық бөлшектерді жазу</h3>
+        <p>
+          Бүтін бөлікті жазу → үтір → бөлшек бөлікті жазу.
+          Нөлдерді дұрыс жазу маңызды, өйткені олар разрядты көрсетеді.
+        </p>
+        <p>Мысалы: 0,05 ≠ 0,5</p>
+        <ul>
+          <li>0,05 → «нөл бүтін бес жүздік»</li>
+          <li>0,5 → «нөл бүтін бес ондық»</li>
+        </ul>
+        <p>Бөлшек бөлігі санын қысқартуға, соңғы нөлдерді алып тастауға болады:
+          2,50 = 2,5; 0,700 = 0,7.</p>
+
+        <h3>4. Ондық бөлшектерді салыстыру</h3>
+        <p>
+          Алдымен бүтін бөлігін салыстырамыз: үлкен бүтін бөлік → сан үлкен.
+          Егер бүтін бөлігі тең болса, үтірден кейінгі цифрларды солдан оңға қарай салыстырамыз. :contentReference[oaicite:3]{index=3}
+        </p>
+      </div>
+
+      <div class="theory-tests">
+        <h3>Тест: Ондық бөлшектер</h3>
+
+        <div class="test-item">
+          <div class="question">1. Ондық бөлшек қалай жазылады?</div>
+          <ul class="options">
+            <li class="option">A) Үстінде сызығы бар түрде</li>
+            <li class="option">B) Үтір арқылы</li>
+            <li class="option">C) Тек бүтін сандармен</li>
+            <li class="option">D) Тек бөлшекпен</li>
+          </ul>
+          <div class="answer-key">Дұрыс жауап: B</div>
+        </div>
+
+        <div class="test-item">
+          <div class="question">2. 0,7 саны қалай оқылады?</div>
+          <ul class="options">
+            <li class="option">A) Нөл бүтін жеті жүздік</li>
+            <li class="option">B) Жеті бүтін</li>
+            <li class="option">C) Нөл бүтін жеті ондық</li>
+            <li class="option">D) Нөл бүтін жеті мыңдық</li>
+          </ul>
+          <div class="answer-key">Дұрыс жауап: C</div>
+        </div>
+
+        <div class="test-item">
+          <div class="question">3. Қайсысы дұрыс жазылған ондық бөлшек?</div>
+          <ul class="options">
+            <li class="option">A) 3/14</li>
+            <li class="option">B) 3.14</li>
+            <li class="option">C) 3,14</li>
+            <li class="option">D) 3-14</li>
+          </ul>
+          <div class="answer-key">Дұрыс жауап: C</div>
+        </div>
+
+        <div class="test-item">
+          <div class="question">4. 4,08 саны қалай оқылады?</div>
+          <ul class="options">
+            <li class="option">A) Төрт бүтін сегіз жүздік</li>
+            <li class="option">B) Төрт бүтін сегіз ондық</li>
+            <li class="option">C) Төрт бүтін сегіз мыңдық</li>
+            <li class="option">D) Төрт бүтін сегіз</li>
+          </ul>
+          <div class="answer-key">Дұрыс жауап: A</div>
+        </div>
+
+        <div class="test-item">
+          <div class="question">5. 0,5 пен 0,50 сандарының арасындағы қатынас қандай?</div>
+          <ul class="options">
+            <li class="option">A) 0,5 &gt; 0,50</li>
+            <li class="option">B) 0,5 &lt; 0,50</li>
+            <li class="option">C) Тең</li>
+            <li class="option">D) Салыстыруға болмайды</li>
+          </ul>
+          <div class="answer-key">Дұрыс жауап: C</div>
+        </div>
+
+        <div class="test-item">
+          <div class="question">6. Қайсысы үлкен?</div>
+          <ul class="options">
+            <li class="option">A) 1,2</li>
+            <li class="option">B) 1,08</li>
+            <li class="option">C) Екеуі тең</li>
+            <li class="option">D) 0,98</li>
+          </ul>
+          <div class="answer-key">Дұрыс жауап: A</div>
+        </div>
+
+        <div class="test-item">
+          <div class="question">7. 3,405 санының бөлшек бөлігін көрсетіңіз.</div>
+          <ul class="options">
+            <li class="option">A) 3</li>
+            <li class="option">B) 405</li>
+            <li class="option">C) 4</li>
+            <li class="option">D) 5</li>
+          </ul>
+          <div class="answer-key">Дұрыс жауап: B</div>
+        </div>
+
+        <div class="test-item">
+          <div class="question">8. 0,09 ? 0,9</div>
+          <ul class="options">
+            <li class="option">A) &gt;</li>
+            <li class="option">B) &lt;</li>
+            <li class="option">C) =</li>
+            <li class="option">D) Нақты айтуға болмайды</li>
+          </ul>
+          <div class="answer-key">Дұрыс жауап: B</div>
+        </div>
+
+        <div class="test-item">
+          <div class="question">9. Қай сандар өсу ретімен дұрыс орналасқан?</div>
+          <ul class="options">
+            <li class="option">A) 0,5; 0,45; 0,6</li>
+            <li class="option">B) 0,12; 0,2; 0,205</li>
+            <li class="option">C) 1,03; 1,3; 1,25</li>
+            <li class="option">D) 0,89; 0,9; 0,87</li>
+          </ul>
+          <div class="answer-key">Дұрыс жауап: B</div>
+        </div>
+
+        <div class="test-item">
+          <div class="question">10. 2,73 санындағы “7” цифры қандай разрядта тұр?</div>
+          <ul class="options">
+            <li class="option">A) Ондық</li>
+            <li class="option">B) Жүздік</li>
+            <li class="option">C) Бүтін</li>
+            <li class="option">D) Мыңдық</li>
+          </ul>
+          <div class="answer-key">Дұрыс жауап: A</div>
+        </div>
+
+        <button type="button" class="test-reset-all">
+          Жауаптарды тазалау (осы тақырып бойынша)
+        </button>
+      </div>
+    </div>
+
+    <!-- ===== ТАҚЫРЫП 3: ПРОЦЕНТТЕР ===== -->
+    <div class="theory-topic" id="theory-perc">
+      <div class="theory-text">
+        <h2>Проценттер</h2>
+
+        <p><strong>Жоспар:</strong></p>
+        <ul>
+          <li>Процент деген не?</li>
+          <li>Процентті бөлшекке айналдыру</li>
+          <li>Бөлшекті процентке айналдыру</li>
+          <li>Бір санның процентін табу</li>
+          <li>Қарапайым өмірлік есептер</li>
+        </ul>
+
+        <h3>1. Процент деген не?</h3>
+        <p>
+          Процент (%) — “жүзден бір бөлік” деген мағынаны білдіреді.
+          1% = 1/100 = 0,01. :contentReference[oaicite:4]{index=4}
+        </p>
+
+<div class="image-row">
+  <div class="image-placeholder">
+    <img src="img/нат 4.png" alt="Проценттерге арналған бірінші сурет">
+  </div>
+  <div class="image-placeholder">
+    <img src="img/нат5.png" alt="Проценттерге арналған екінші сурет">
+  </div>
+</div>
+
+        <h3>2. Бөлшекті процентке айналдыру</h3>
+        <p>Бөлшекті процентке айналдыру үшін оны 100-ге көбейтеміз.</p>
+        <p>Мысалдар:</p>
+        <ul>
+          <li>0,3 × 100 = 30%</li>
+          <li>0,45 × 100 = 45%</li>
+          <li>0,05 × 100 = 5%</li>
+          <li>0,72 × 100 = 72%</li>
+        </ul>
+
+        <h3>3. Процентті бөлшекке айналдыру</h3>
+        <p>Процентті бөлшекке айналдыру үшін оны 100-ге бөлеміз.</p>
+        <p>Мысалдар:</p>
+        <ul>
+          <li>25% = 25/100 = 0,25</li>
+          <li>8% = 8/100 = 0,08</li>
+          <li>75% = 75/100 = 0,75</li>
+          <li>4% = 4/100 = 0,04</li>
+        </ul>
+
+        <h3>4. Бір санның процентін табу</h3>
+        <p>Санның % мөлшерін табу үшін санды сәйкес ондық бөлшекке көбейтеміз. :contentReference[oaicite:5]{index=5}</p>
+
+        <h3>5. Қарапайым өмірлік есептер</h3>
+        <p>Мысалдар: жеңілдік, оқушылар саны, кәмпиттер т.б.</p>
+      </div>
+
+      <div class="theory-tests">
+        <h3>Тест: Проценттер</h3>
+
+        <div class="test-item">
+          <div class="question">1. 1% қандай бөлшекке тең?</div>
+          <ul class="options">
+            <li class="option">A) 1/10</li>
+            <li class="option">B) 1/100</li>
+            <li class="option">C) 1/2</li>
+            <li class="option">D) 1/1000</li>
+          </ul>
+          <div class="answer-key">Дұрыс жауап: B</div>
+        </div>
+
+        <div class="test-item">
+          <div class="question">2. 20% ондық бөлшекпен қалай жазылады?</div>
+          <ul class="options">
+            <li class="option">A) 0,02</li>
+            <li class="option">B) 2</li>
+            <li class="option">C) 0,2</li>
+            <li class="option">D) 0,002</li>
+          </ul>
+          <div class="answer-key">Дұрыс жауап: C</div>
+        </div>
+
+        <div class="test-item">
+          <div class="question">3. 0,35 қандай процентке тең?</div>
+          <ul class="options">
+            <li class="option">A) 3,5%</li>
+            <li class="option">B) 35%</li>
+            <li class="option">C) 350%</li>
+            <li class="option">D) 0,35%</li>
+          </ul>
+          <div class="answer-key">Дұрыс жауап: B</div>
+        </div>
+
+        <div class="test-item">
+          <div class="question">4. 50-нің 10%-ы неге тең?</div>
+          <ul class="options">
+            <li class="option">A) 5</li>
+            <li class="option">B) 10</li>
+            <li class="option">C) 50</li>
+            <li class="option">D) 0,5</li>
+          </ul>
+          <div class="answer-key">Дұрыс жауап: A</div>
+        </div>
+
+        <div class="test-item">
+          <div class="question">5. 200 санының 25%-ын тап.</div>
+          <ul class="options">
+            <li class="option">A) 20</li>
+            <li class="option">B) 25</li>
+            <li class="option">C) 50</li>
+            <li class="option">D) 75</li>
+          </ul>
+          <div class="answer-key">Дұрыс жауап: C</div>
+        </div>
+
+        <div class="test-item">
+          <div class="question">6. 80-нің 5%-ы қанша?</div>
+          <ul class="options">
+            <li class="option">A) 5</li>
+            <li class="option">B) 4</li>
+            <li class="option">C) 8</li>
+            <li class="option">D) 16</li>
+          </ul>
+          <div class="answer-key">Дұрыс жауап: B</div>
+        </div>
+
+        <div class="test-item">
+          <div class="question">7. 15% бөлшек түрінде қалай жазылады?</div>
+          <ul class="options">
+            <li class="option">A) 15/10</li>
+            <li class="option">B) 15/100</li>
+            <li class="option">C) 1/15</li>
+            <li class="option">D) 100/15</li>
+          </ul>
+          <div class="answer-key">Дұрыс жауап: B</div>
+        </div>
+
+        <div class="test-item">
+          <div class="question">8. 0,08 → процентке айналдыр.</div>
+          <ul class="options">
+            <li class="option">A) 0,8%</li>
+            <li class="option">B) 0,08%</li>
+            <li class="option">C) 8%</li>
+            <li class="option">D) 80%</li>
+          </ul>
+          <div class="answer-key">Дұрыс жауап: C</div>
+        </div>
+
+        <div class="test-item">
+          <div class="question">9. Баға 6000₸, жеңілдік – 20%. Жаңа баға қанша?</div>
+          <ul class="options">
+            <li class="option">A) 4800₸</li>
+            <li class="option">B) 5000₸</li>
+            <li class="option">C) 5200₸</li>
+            <li class="option">D) 3000₸</li>
+          </ul>
+          <div class="answer-key">Дұрыс жауап: A</div>
+        </div>
+
+        <div class="test-item">
+          <div class="question">10. Мектепте 300 оқушы бар. Оның 40%-ы – ұлдар. Қанша ұл бар?</div>
+          <ul class="options">
+            <li class="option">A) 120</li>
+            <li class="option">B) 100</li>
+            <li class="option">C) 140</li>
+            <li class="option">D) 160</li>
+          </ul>
+          <div class="answer-key">Дұрыс жауап: A</div>
+        </div>
+
+        <button type="button" class="test-reset-all">
+          Жауаптарды тазалау (осы тақырып бойынша)
+        </button>
+      </div>
+    </div>
+
+    <!-- ===== ТАҚЫРЫП 4: КӨПБҰРЫШТАР ===== -->
+    <div class="theory-topic" id="theory-poly">
+      <div class="theory-text">
+        <h2>Көпбұрыштар</h2>
+
+        <p><strong>Жоспар:</strong></p>
+        <ul>
+          <li>Көпбұрыш дегеніміз не?</li>
+          <li>Көпбұрыштардың түрлері</li>
+          <li>Арнайы көпбұрыштардың қасиеттері</li>
+          <li>Периметр</li>
+        </ul>
+
+        <h3>1. Көпбұрыш дегеніміз не?</h3>
+        <p>
+          Көпбұрыш — түзу сызықтардан тұратын, жабық фигура.
+          Ол бірнеше қабырғадан, төбеден, бұрыштан тұрады. :contentReference[oaicite:6]{index=6}
+        </p>
+
+<h3>2. Көпбұрыштардың түрлері</h3>
+<div class="image-placeholder">
+  <img src="img/нат9.png" alt="Көпбұрыштардың түрлері суреті">
+</div>
+
+<h3>3. Арнайы көпбұрыштардың қасиеттері</h3>
+<div class="image-placeholder">
+  <img src="img/нат10.png" alt="Арнайы көпбұрыштардың қасиеттері суреті">
+</div>
+
+        <h3>4. Периметр</h3>
+        <p>
+          Периметр (P) — көпбұрыштың барлық қабырғаларының қосындысы.
+        </p>
+        <p><strong>Формулалар:</strong></p>
+        <ul>
+          <li>Тік төртбұрыш: P = 2(a + b)</li>
+          <li>Квадрат: P = 4a</li>
+          <li>Үшбұрыш: P = a + b + c</li>
+        </ul>
+      </div>
+
+      <div class="theory-tests">
+        <h3>Тест: Көпбұрыштар</h3>
+
+        <div class="test-item">
+          <div class="question">1. Көпбұрыш дегеніміз не?</div>
+          <ul class="options">
+            <li class="option">A) Қисық сызықтардан тұратын фигура</li>
+            <li class="option">B) Тек бір кесіндіден тұратын фигура</li>
+            <li class="option">C) Түзу кесінділерден тұратын тұйық фигура</li>
+            <li class="option">D) Шеңбер</li>
+          </ul>
+          <div class="answer-key">Дұрыс жауап: C</div>
+        </div>
+
+        <div class="test-item">
+          <div class="question">2. Үшбұрышта неше қабырға бар?</div>
+          <ul class="options">
+            <li class="option">A) 2</li>
+            <li class="option">B) 3</li>
+            <li class="option">C) 4</li>
+            <li class="option">D) 5</li>
+          </ul>
+          <div class="answer-key">Дұрыс жауап: B</div>
+        </div>
+
+        <div class="test-item">
+          <div class="question">3. Төртбұрыштың бұрыштары саны?</div>
+          <ul class="options">
+            <li class="option">A) 3</li>
+            <li class="option">B) 4</li>
+            <li class="option">C) 5</li>
+            <li class="option">D) 6</li>
+          </ul>
+          <div class="answer-key">Дұрыс жауап: B</div>
+        </div>
+
+        <div class="test-item">
+          <div class="question">4. Бесбұрыш қалай аталады?</div>
+          <ul class="options">
+            <li class="option">A) Трапеция</li>
+            <li class="option">B) Пентагон</li>
+            <li class="option">C) Гексагон</li>
+            <li class="option">D) Октогон</li>
+          </ul>
+          <div class="answer-key">Дұрыс жауап: B</div>
+        </div>
+
+        <div class="test-item">
+          <div class="question">5. Алтыбұрыштың қабырғалар саны?</div>
+          <ul class="options">
+            <li class="option">A) 4</li>
+            <li class="option">B) 5</li>
+            <li class="option">C) 6</li>
+            <li class="option">D) 7</li>
+          </ul>
+          <div class="answer-key">Дұрыс жауап: C</div>
+        </div>
+
+        <div class="test-item">
+          <div class="question">6. Барлық қабырғалары тең көпбұрыш қалай аталады?</div>
+          <ul class="options">
+            <li class="option">A) Дұрыс көпбұрыш</li>
+            <li class="option">B) Жай көпбұрыш</li>
+            <li class="option">C) Кездейсоқ көпбұрыш</li>
+            <li class="option">D) Ұзын көпбұрыш</li>
+          </ul>
+          <div class="answer-key">Дұрыс жауап: A</div>
+        </div>
+
+        <div class="test-item">
+          <div class="question">7. Тік төртбұрыш дегеніміз не?</div>
+          <ul class="options">
+            <li class="option">A) Барлық бұрыштары сүйір</li>
+            <li class="option">B) Барлық бұрыштары тік</li>
+            <li class="option">C) Барлық бұрыштары доғал</li>
+            <li class="option">D) Екі тік бұрышы бар</li>
+          </ul>
+          <div class="answer-key">Дұрыс жауап: B</div>
+        </div>
+
+        <div class="test-item">
+          <div class="question">8. Квадраттың ерекшелігі?</div>
+          <ul class="options">
+            <li class="option">A) Бір қабырғасы ұзын</li>
+            <li class="option">B) Қарама-қарсы қабырғалары тең</li>
+            <li class="option">C) Барлық қабырғалары тең және бұрыштары тік</li>
+            <li class="option">D) Тек бір бұрышы тік</li>
+          </ul>
+          <div class="answer-key">Дұрыс жауап: C</div>
+        </div>
+
+        <div class="test-item">
+          <div class="question">9. Көпбұрыштың төбелері дегеніміз –</div>
+          <ul class="options">
+            <li class="option">A) Қабырғаларды жалғайтын нүктелер</li>
+            <li class="option">B) Фигураның ішіндегі нүктелер</li>
+            <li class="option">C) Қисық сызықтар</li>
+            <li class="option">D) Кез келген нүкте</li>
+          </ul>
+          <div class="answer-key">Дұрыс жауап: A</div>
+        </div>
+
+        <div class="test-item">
+          <div class="question">10. Мына фигура қай көпбұрышқа жатады? (3 қабырға, 3 бұрыш)</div>
+          <ul class="options">
+            <li class="option">A) Төртбұрыш</li>
+            <li class="option">B) Бесбұрыш</li>
+            <li class="option">C) Үшбұрыш</li>
+            <li class="option">D) Алтыбұрыш</li>
+          </ul>
+          <div class="answer-key">Дұрыс жауап: C</div>
+        </div>
+
+        <button type="button" class="test-reset-all">
+          Жауаптарды тазалау (осы тақырып бойынша)
+        </button>
+      </div>
+    </div>
+
+  </div>
+</article>
+
+<!-- 1-ӘДІС -->
+<article id="method1" class="section">
+  <div class="method-wrapper">
+    <div class="method-title-block">
+      <h2>1-әдіс. Көрнекілік пен визуализация</h2>
+      <p class="method-subtitle">
+        Математика сабағында көрнекілік пен визуализацияны пайдалану арқылы тақырыпты жеңіл түсіндіру.
+      </p>
+    </div>
+
+<div class="image-row">
+  <div class="image-placeholder">
+    <img src="img/lecture1-kobelek.png" alt="1-әдіс бірінші сурет">
+  </div>
+  <div class="image-placeholder">
+    <img src="img/lecture1-icons.png" alt="1-әдіс екінші сурет">
+  </div>
+  <div class="image-placeholder">
+    <img src="img/lecture1-tech.png" alt="1-әдіс үшінші сурет">
+  </div>
+</div>
+
+    <div class="method-plan">
+      <h3>Жоспар:</h3>
+      <ol>
+        <li>Кіріспе: Неге математикада көрнекілік қажет?</li>
+        <li>Көрнекіліктің түрлері</li>
+        <li>Визуализация әдісі</li>
+      </ol>
+    </div>
+
+    <div class="method-text">
+      <h3>1. Кіріспе: Неге математикада көрнекілік қажет?</h3>
+      <p>
+        5-сыныпта оқушылар тек қарапайым қосу мен азайтудан бөлек, геометриялық фигуралар,
+        диаграммалар, координаталар, теңдеулер сияқты жаңа ұғымдармен танысады.
+        Мұндай материалды тек сөзбен түсіндіру қиын, сондықтан көрнекілік пен визуализация маңызды рөл атқарады. 
+      </p>
+      <p>
+        Көрнекілік – тақырыпты көзбен көру, ал визуализация – оны ойша елестету.
+        Егер есепті сурет, сызба, модель арқылы көрсек, түсіну оңайлайды, есте жақсы сақталады,
+        әрі қызығушылық артады. :contentReference[oaicite:0]{index=0}
+      </p>
+
+      <h3>2. Көрнекіліктің түрлері</h3>
+      <p><strong>1) Табиғи көрнекілік.</strong> Күнделікті өмірдегі нақты заттарды пайдалану.</p>
+      <p>
+        Мысалы, шаршыны шахмат тақтасының торымен, шеңберді сағат циферблатымен,
+        үшбұрышты жол белгілерімен салыстыру. Мұндай көрнекілік жаңа ұғымды нақты затпен
+        байланысты елестетуге көмектеседі.
+      </p>
+      <p><strong>2) Қолданбалы көрнекілік.</strong> Арнайы дайындалған оқу материалдары:</p>
+      <ul>
+        <li>қағаздан жасалған геометриялық фигуралар;</li>
+        <li>үлестірме карточкалар;</li>
+        <li>кестелер, сызбалар және модельдер.</li>
+      </ul>
+      <p>
+        Бұл оқушының қолмен жұмыс жасап, ұғымды жақсырақ түсінуіне мүмкіндік береді.
+      </p>
+      <p><strong>3) Динамикалық көрнекілік.</strong> Компьютерлік модельдер, презентациялар, анимациялар.</p>
+      <p>
+        Мысалы, үшбұрыштың бұрыштарын өзгерту, шеңбердің радиусын үлкейту/кішірейту,
+        теңдеуді таразы түрінде көрсету. Мұндай көрнекілік сабаққа қызығушылық қосады
+        және түсінуді жеңілдетеді.
+      </p>
+
+      <h3>3. Визуализация әдісі</h3>
+      <p>
+        Визуализация – математикалық ұғымды ойша елестету. Оқушы есептің шартын,
+        фигураның қасиетін немесе сандар арасындағы байланысты санасында бейнелейді.
+      </p>
+      <p>
+        Мысалы, «10 кг алма, 4 кг сатылды» есебін ойша бөліктерге бөліп елестету,
+        теріс және оң сандарды температура шкаласы арқылы елестету,
+        теңдеуді таразы түрінде ойша көру – бәрі визуализацияға жатады.
+      </p>
+      <p>
+        Қорытынды: көрнекілік пен визуализация әдістері математиканы тез және терең түсінуге көмектеседі,
+        логикалық ойлауды дамытады, есте сақтауды жеңілдетеді. :contentReference[oaicite:1]{index=1}
+      </p>
+    </div>
+  </div>
+</article>
+
+<!-- 2-ӘДІС -->
+<article id="method2" class="section">
+  <div class="method-wrapper">
+    <div class="method-title-block">
+      <h2>2-әдіс. Ойын элементтерін қолдану</h2>
+      <p class="method-subtitle">
+        Математика сабағында ойын, викторина және логикалық тапсырмалар арқылы оқушылардың қызығушылығын арттыру.
+      </p>
+    </div>
+
+    <!-- Место под картинку 2-әдіс -->
+<div class="image-row">
+  <div class="image-placeholder">
+    <img src="img/lecture2-logic.png" alt="2-әдіс бірінші сурет">
+  </div>
+
+    <div class="method-plan">
+      <h3>Жоспар:</h3>
+      <ol>
+        <li>Ойын элементтерінің сабақтағы маңызы</li>
+        <li>Математикалық викториналар</li>
+        <li>Логикалық ойындар мен жарыстар</li>
+      </ol>
+    </div>
+
+    <div class="method-text">
+      <h3>1. Ойын элементтерінің сабақтағы маңызы</h3>
+      <p>
+        Ойын – баланың ойлауын, зейінін, қиялын дамытатын ең қызықты тәсілдердің бірі.
+        Математикада ойын элементтерін қолданғанда сабақ қызықты, жеңіл қабылданатын болады. :contentReference[oaicite:2]{index=2}
+      </p>
+      <p>
+        Ойын элементтері – сабаққа енгізілген жарыстар, викториналар, логикалық тапсырмалар.
+        Олар оқушыларға:
+      </p>
+      <ul>
+        <li>жаңа тақырыпты тез меңгеруге;</li>
+        <li>есептерді ынтамен шешуге;</li>
+        <li>логикалық ойлауын дамытуға;</li>
+        <li>топта және жұпта жұмыс істеуге мүмкіндік береді.</li>
+      </ul>
+
+      <h3>2. Математикалық викториналар</h3>
+      <p>
+        Викторина – сұрақтар мен жауаптар арқылы өтетін ойын. Мысалы:
+        «Сандар әлемі» викторинасында қосу, азайту, көбейту, геометриялық фигуралар туралы сұрақтар қойылады.
+      </p>
+      <p>
+        Оқушылар:
+      </p>
+      <ul>
+        <li>есептерді жылдам шешуге үйренеді;</li>
+        <li>дұрыс жауапты табуға талпынып, логикалық ойлауын дамытады;</li>
+        <li>командалық жұмыс тәжірибесін алады.</li>
+      </ul>
+
+      <h3>3. Логикалық ойындар мен жарыстар</h3>
+      <p>
+        Логикалық ойындар – «Кім тез шешеді?», «Сандар лабиринті», «Құпия сан» сияқты тапсырмалар.
+      </p>
+      <p>
+        Мұндай ойындарда оқушылар:
+      </p>
+      <ul>
+        <li>бір-бірімен жарысады;</li>
+        <li>математикалық дағдыларын қолданады;</li>
+        <li>стратегия құрып, дұрыс шешім табуға тырысады.</li>
+      </ul>
+      <p>
+        Қорытынды: ойын элементтері сабақтың қызықты әрі есте қаларлық өтуіне көмектеседі,
+        оқушылардың белсенділігін арттырады. :contentReference[oaicite:3]{index=3}
+      </p>
+    </div>
+  </div>
+</article>
+
+<!-- 3-ӘДІС -->
+<article id="method3" class="section">
+  <div class="method-wrapper">
+    <div class="method-title-block">
+      <h2>3-әдіс. Шынайы өмірмен байланыстыру</h2>
+      <p class="method-subtitle">
+        Математикалық ұғымдарды күнделікті өмірдегі жағдайлармен байланыстырып түсіндіру.
+      </p>
+    </div>
+
+    <div class="method-plan">
+      <h3>Жоспар:</h3>
+      <ol>
+        <li>Математика және шынайы өмір байланысы</li>
+        <li>Мысалдар арқылы түсіндіру</li>
+      </ol>
+    </div>
+
+    <div class="method-text">
+      <h3>1. Математика және шынайы өмір байланысы</h3>
+      <p>
+        Математика – тек мектеп оқулығындағы тапсырмалар емес. Ол:
+      </p>
+      <ul>
+        <li>уақытты анықтауда (сағат, күн, апта);</li>
+        <li>дүкенде сатып алу кезінде (бағаны қосу, азайту, қайтарымды есептеу);</li>
+        <li>қашықтықты, салмақты, көлемді өлшеуде;</li>
+        <li>диаграммалар мен кестелерді оқуда</li>
+      </ul>
+      <p>
+        үнемі қолданылады. Тақырыпты шынайы өмір мысалдарымен байланыстыру сабақтың қызықты
+        және түсінікті болуына көмектеседі. :contentReference[oaicite:4]{index=4}
+      </p>
+
+      <h3>Шынайы өмірмен байланыстыру дегеніміз не?</h3>
+      <p>
+        Бұл – математикалық ұғымды немесе есепті нақты өмірлік жағдайға қолдану.
+        Мысалы, «5 + 3 = 8» теңдігін дүкендегі алма саны арқылы көрсету
+        («5 алма сатып алдық, тағы 3 алма қосылды») есептің мәнін нақты түсіндіреді.
+      </p>
+
+      <h3>2. Мысалдар арқылы түсіндіру</h3>
+      <p><strong>Күнделікті өмірдегі сандар мен өлшемдер:</strong></p>
+      <ul>
+        <li>үйдегі заттардың санын санау (кітап, ойыншық, қорап);</li>
+        <li>мектептен үйге дейінгі қашықтықты шамалау;</li>
+        <li>азық-түліктің салмағын килограммен өлшеу.</li>
+      </ul>
+
+      <p><strong>Ақша және есептеу:</strong></p>
+      <ul>
+        <li>дүкендегі сатып алу бағасын қосу, жеңілдікті есептеу;</li>
+        <li>қайтарымды табу;</li>
+        <li>ақшаны жоспарлау, күнделікті шығынды есептеу.</li>
+      </ul>
+
+      <p><strong>Уақыт және кестелер:</strong></p>
+      <ul>
+        <li>сағат, күн, апта, айларды оқу;</li>
+        <li>сабақ кестесін жасау және қолдану;</li>
+        <li>диаграмма арқылы сыныптағы ұлдар мен қыздар санын салыстыру.</li>
+      </ul>
+
+      <p>
+        Қорытынды: шынайы өмірмен байланыстыру арқылы оқушы математиканың өмірде қаншалықты
+        қажет екенін көреді, материалды жақсы есте сақтайды және логикалық ойлауы дамиды. :contentReference[oaicite:5]{index=5}
+      </p>
+    </div>
+  </div>
+</article>
+
+<!-- 4-ӘДІС -->
+<article id="method4" class="section">
+  <div class="method-wrapper">
+    <div class="method-title-block">
+      <h2>4-әдіс. Топтық және жұптық жұмыс тәсілдері</h2>
+      <p class="method-subtitle">
+        Оқушыларды топта және жұпта жұмыс істету арқылы белсенділігін, жауапкершілігін және түсінуін арттыру.
+      </p>
+    </div>
+
+<div class="image-row">
+  <div class="image-placeholder">
+    <img src="img/lecture4-group.png" alt="4-әдіс бірінші сурет">
+  </div>
+  <div class="image-placeholder">
+    <img src="img/lecture4-team.png" alt="4-әдіс бірінші сурет">
+  </div>
+
+    <div class="method-plan">
+      <h3>Жоспар:</h3>
+      <ol>
+        <li>Топтық жұмыс және жұптық жұмыс</li>
+        <li>Топтық және жұптық жұмыстың артықшылықтары</li>
+        <li>Сабақта қолдану мысалдары</li>
+      </ol>
+    </div>
+
+    <div class="method-text">
+      <h3>1. Топтық жұмыс және жұптық жұмыс</h3>
+      <p>
+        <strong>Топтық жұмыс</strong> – оқушылардың 3–5 адамнан тұратын шағын топқа бөлініп,
+        бір тапсырманы бірге орындауы. Әр оқушының өз рөлі болады: біреуі есепті шығарады,
+        біреуі жазып алады, біреуі жауапты тексереді. :contentReference[oaicite:6]{index=6}
+      </p>
+      <p>
+        <strong>Жұптық жұмыс</strong> – екі оқушының бір тапсырманы бірігіп орындауы.
+        Жұпта олар бір-біріне түсіндіреді, қателерін бірге талқылайды, дұрыс шешімге келуге тырысады.
+      </p>
+
+      <h3>2. Топтық және жұптық жұмыстың артықшылықтары</h3>
+      <ul>
+        <li>Сабақ қызықты өтеді – оқушылар тек тыңдаушы емес, белсенді қатысушы болады.</li>
+        <li>Белсенділік артады – әркім өз пікірін айтып, шешім ұсынады.</li>
+        <li>Логикалық ойлау дамиды – күрделі есептерді бірге талқылау арқылы түсінік тереңдейді.</li>
+        <li>Қарым-қатынас дағдылары қалыптасады – бір-біріне түсіндіру, тыңдау, дәлелдеу.</li>
+        <li>Жауапкершілік сезімі артады – әркім өз рөлін орындауға тырысады.</li>
+      </ul>
+
+      <h3>3. Сабақта қолдану мысалдары</h3>
+      <ul>
+        <li>Әр топқа 3–4 есеп беру, топ мүшелері бөліп шешеді.</li>
+        <li>Жұпта есеп шығарып, бір-біріне түсіндіру.</li>
+        <li>«Кім жылдам шешеді?» жарысын топтық немесе жұптық түрде өткізу.</li>
+        <li>Диаграмма, сызба, кестелерді бірге жасап, оны қорғау.</li>
+      </ul>
+      <p>
+        Қорытынды: топтық және жұптық жұмыс тәсілдері сабақтың тиімділігін арттырады,
+        оқушыларды бір-бірінен үйренуге, пікір алмасуға және білімін сенімді түрде көрсетуге үйретеді. :contentReference[oaicite:7]{index=7}
+      </p>
+    </div>
+  </div>
+</article>
+
+<!-- 5-ӘДІС -->
+<article id="method5" class="section">
+  <div class="method-wrapper">
+    <div class="method-title-block">
+      <h2>5-әдіс. Ақпараттық-коммуникациялық технологияларды (АКТ) қолдану</h2>
+      <p class="method-subtitle">
+        Компьютер, интерактивті тақта, бағдарлама және онлайн ресурстарды пайдалану арқылы
+        математика сабағын тиімді ұйымдастыру.
+      </p>
+    </div>
+
+    <!-- Место под картинку 5-әдіс -->
+ <div class="image-row">
+  <div class="image-placeholder">
+    <img src="img/lecture4-team.png" alt="5-әдіс бірінші сурет">
+  </div>
+
+    <div class="method-plan">
+      <h3>Жоспар:</h3>
+      <ol>
+        <li>Ақпараттық-коммуникациялық технологиялар ұғымы</li>
+        <li>Сабақта АКТ қолдану әдістері</li>
+      </ol>
+    </div>
+
+    <div class="method-text">
+      <h3>1. Ақпараттық-коммуникациялық технологиялар</h3>
+      <p>
+        АКТ – ақпаратты жинауға, сақтауға, өңдеуге және бөлісуге көмектесетін құралдар мен әдістер:
+        компьютер, планшет, интерактивті тақта, презентациялар, білім беру бағдарламалары және т.б. :contentReference[oaicite:8]{index=8}
+      </p>
+      <p>
+        Математика сабағында АКТ қолдану:
+      </p>
+      <ul>
+        <li>күрделі тақырыптарды көрнекі және түсінікті етуге;</li>
+        <li>оқушының белсенділігін арттыруға;</li>
+        <li>интерактивті тапсырмалар арқылы қызығушылығын оятуға;</li>
+        <li>жеке және топтық жұмыс ұйымдастыруға көмектеседі.</li>
+      </ul>
+
+      <h3>АКТ түрлері мен мысалдары</h3>
+      <ul>
+        <li>компьютерлік бағдарламалар (GeoGebra, Excel, PowerPoint);</li>
+        <li>интерактивті тақта (сызбалар, фигуралар, презентациялар);</li>
+        <li>планшет пен смартфон қосымшалары (математикалық ойындар, викториналар);</li>
+        <li>видеоматериалдар мен анимациялар;</li>
+        <li>онлайн платформалар (тест, кері байланыс, қашықтықтан оқу).</li>
+      </ul>
+
+      <h3>2. Сабақта АКТ қолдану әдістері</h3>
+      <p>
+        АКТ арқылы:
+      </p>
+      <ul>
+        <li>визуализация жасауға (сызбалар, диаграммалар, анимациялар);</li>
+        <li>ойын элементтерін ұйымдастыруға (онлайн викториналар, интерактивті жаттығулар);</li>
+        <li>жеке және топтық тапсырмалар беруге;</li>
+        <li>онлайн тест арқылы нәтижені бірден тексеруге болады.</li>
+      </ul>
+      <p>
+        Қорытынды: АКТ сабаққа заманауи көрініс береді, оқушылардың қызығушылығын арттырады,
+        материалды тез қабылдауға және есте сақтауға көмектеседі. :contentReference[oaicite:9]{index=9}
+      </p>
+    </div>
+  </div>
+</article>
+
+
+<article id="test" class="section">
+  <div class="test-wrapper">
+    <h2>Деңгейлік тест</h2>
+    <p class="test-intro">
+      Әр сұрақта берілген жауап нұсқаларының біреуін таңдаңыз. Таңдаған кезде дұрыс/бұрыс екені бірден көрсетіледі.
+    </p>
+
+    <div class="theory-tests">
+      <h3>I бөлім. Тест тапсырмалары</h3>
+
+      <!-- 1 -->
+      <div class="test-item">
+        <div class="question">1. Ең үлкен үш таңбалы санды тап:</div>
+        <ul class="options">
+          <li class="option">A. 769</li>
+          <li class="option">B. 876</li>
+          <li class="option">C. 978</li>
+          <li class="option">D. 987</li>
+          <li class="option">E. 980</li>
+        </ul>
+        <div class="answer-key">Дұрыс жауап: D</div>
+      </div>
+
+      <!-- 2 -->
+      <div class="test-item">
+        <div class="question">2. 3 мыңд. 6 жүзд. 3 онд. 6 бірл. бар санды тап:</div>
+        <ul class="options">
+          <li class="option">A. 30636</li>
+          <li class="option">B. 36036</li>
+          <li class="option">C. 300636</li>
+          <li class="option">D. 360036</li>
+          <li class="option">E. 3636</li>
+        </ul>
+        <div class="answer-key">Дұрыс жауап: E</div>
+      </div>
+
+      <!-- 3 -->
+      <div class="test-item">
+        <div class="question">
+          3. Қосылғыштарды есептеуге ыңғайластырып топтастыр:
+          540 + 6400 + 360 + 600 = 7900
+        </div>
+        <ul class="options">
+          <li class="option">A. (540+600)+(6400+360)</li>
+          <li class="option">B. (540+6400)+(360+600)</li>
+          <li class="option">C. (540+360)+(6400+600)</li>
+          <li class="option">D. (6400+360)+(600+540)</li>
+          <li class="option">E. (6400+540)+(600+360)</li>
+        </ul>
+        <div class="answer-key">Дұрыс жауап: C</div>
+      </div>
+
+      <!-- 4 -->
+      <div class="test-item">
+        <div class="question">4. 230002×4 мәнін тап:</div>
+        <ul class="options">
+          <li class="option">A. 8002008</li>
+          <li class="option">B. 8020008</li>
+          <li class="option">C. 9200008</li>
+          <li class="option">D. 920008</li>
+          <li class="option">E. 820008</li>
+        </ul>
+        <div class="answer-key">Дұрыс жауап: D</div>
+      </div>
+
+      <!-- 5 -->
+      <div class="test-item">
+        <div class="question">5. Санды өрнектің мәнін тап: 1576×7 + 2040×8</div>
+        <ul class="options">
+          <li class="option">A. 23532</li>
+          <li class="option">B. 22352</li>
+          <li class="option">C. 27352</li>
+          <li class="option">D. 25352</li>
+          <li class="option">E. 26352</li>
+        </ul>
+        <div class="answer-key">Дұрыс жауап: C</div>
+      </div>
+
+      <!-- 6 -->
+      <div class="test-item">
+        <div class="question">6. Теңдеуді шешу: x:70 = 420:60</div>
+        <ul class="options">
+          <li class="option">A. 591</li>
+          <li class="option">B. 690</li>
+          <li class="option">C. 734</li>
+          <li class="option">D. 810</li>
+          <li class="option">E. 490</li>
+        </ul>
+        <div class="answer-key">Дұрыс жауап: E</div>
+      </div>
+
+      <!-- 7 -->
+      <div class="test-item">
+        <div class="question">7. Амалдарды орында, дұрыс жауабын тап: 16440:60×40 + 8888</div>
+        <ul class="options">
+          <li class="option">A. 19488</li>
+          <li class="option">B. 19884</li>
+          <li class="option">C. 19848</li>
+          <li class="option">D. 18984</li>
+          <li class="option">E. 18894</li>
+        </ul>
+        <div class="answer-key">Дұрыс жауап: C</div>
+      </div>
+
+      <!-- 8 -->
+      <div class="test-item">
+        <div class="question">
+          8. Еділбай қойынан 457 кг жүн күзелді. Бұл меринос қойларынан күзелген жүннен 4 есе кем.
+          Меринос қойынан неше килограмм жүн күзелді?
+        </div>
+        <ul class="options">
+          <li class="option">A. 1288</li>
+          <li class="option">B. 1688</li>
+          <li class="option">C. 1628</li>
+          <li class="option">D. 1828</li>
+          <li class="option">E. 1868</li>
+        </ul>
+        <div class="answer-key">Дұрыс жауап: D</div>
+      </div>
+
+      <!-- 9 -->
+      <div class="test-item">
+        <div class="question">
+          9. Қоймаға 90 кг сәбіз түсірілді. Оның 58 килограмын қапқа салды да,
+          қалғанын 8 килограмнан жәшіктерге бөліп салды. Неше жәшік қажет?
+        </div>
+        <ul class="options">
+          <li class="option">A. 8</li>
+          <li class="option">B. 7</li>
+          <li class="option">C. 6</li>
+          <li class="option">D. 4</li>
+          <li class="option">E. 2</li>
+        </ul>
+        <div class="answer-key">Дұрыс жауап: D</div>
+      </div>
+
+      <!-- 10 -->
+      <div class="test-item">
+        <div class="question">
+          10. Бір торда үш қоян отыр еді. Үш оқушы оларды бір-бірден таратып алды.
+          Сонда торда әлі де бір қоян қалды. Ол қалай?
+        </div>
+        <ul class="options">
+          <li class="option">A. Бір оқушы қоянды алмаған</li>
+          <li class="option">B. Бір оқушы қоянды ұмытып кеткен</li>
+          <li class="option">C. Бір оқушы қоянды торымен алған</li>
+          <li class="option">D. Торда қоян жоқ</li>
+          <li class="option">E. Олай болуы мүмкін емес</li>
+        </ul>
+        <div class="answer-key">Дұрыс жауап: E</div>
+      </div>
+
+      <!-- 11 -->
+      <div class="test-item">
+        <div class="question">
+          11. Өрнектің мәнін тап: 589 және 357 сандарының қосындысын 3-ке көбейт
+        </div>
+        <ul class="options">
+          <li class="option">A. 2338</li>
+          <li class="option">B. 2838</li>
+          <li class="option">C. 2828</li>
+          <li class="option">D. 2645</li>
+          <li class="option">E. 5622</li>
+        </ul>
+        <div class="answer-key">Дұрыс жауап: B</div>
+      </div>
+
+      <!-- 12 -->
+      <div class="test-item">
+        <div class="question">12. 2 дм²-де қанша квадрат сантиметр бар?</div>
+        <ul class="options">
+          <li class="option">A. 200 см²</li>
+          <li class="option">B. 200 мм²</li>
+          <li class="option">C. 200 дм²</li>
+          <li class="option">D. 200 м²</li>
+          <li class="option">E. 20 см²</li>
+        </ul>
+        <div class="answer-key">Дұрыс жауап: A</div>
+      </div>
+
+      <!-- 13 -->
+      <div class="test-item">
+        <div class="question">13. 889725 санын 7 он мыңдыққа азайт</div>
+        <ul class="options">
+          <li class="option">A. 819655</li>
+          <li class="option">B. 819648</li>
+          <li class="option">C. 819025</li>
+          <li class="option">D. 812725</li>
+          <li class="option">E. 819725</li>
+        </ul>
+        <div class="answer-key">Дұрыс жауап: E</div>
+      </div>
+
+      <!-- 14 -->
+      <div class="test-item">
+        <div class="question">
+          14. ИЛ-86 ұшағы 350 жолаушы, ал ЯК-42 ұшағы 120 жолаушы таси алады.
+          5 рейс жасағанда, ИЛ-86 ұшағы ЯК-42 ұшағына қарағанда қанша жолаушыны артық таси алады?
+        </div>
+        <ul class="options">
+          <li class="option">A. 1705</li>
+          <li class="option">B. 1750</li>
+          <li class="option">C. 600</li>
+          <li class="option">D. 1500</li>
+          <li class="option">E. 1150</li>
+        </ul>
+        <div class="answer-key">Дұрыс жауап: E</div>
+      </div>
+
+      <!-- 15 -->
+      <div class="test-item">
+        <div class="question">
+          15. Теңдеу құрып, x-тің мәнін тап:
+          «Бірінші қосылғыш – 320, екінші x-ті екіге бөлгенге тең. Қосындысы – 540»
+        </div>
+        <ul class="options">
+          <li class="option">A. 390</li>
+          <li class="option">B. 410</li>
+          <li class="option">C. 440</li>
+          <li class="option">D. 457</li>
+          <li class="option">E. 670</li>
+        </ul>
+        <div class="answer-key">Дұрыс жауап: C</div>
+      </div>
+
+      <!-- 16 -->
+      <div class="test-item">
+        <div class="question">16. 490:Х = 700:100</div>
+        <ul class="options">
+          <li class="option">A. 50</li>
+          <li class="option">B. 60</li>
+          <li class="option">C. 70</li>
+          <li class="option">D. 80</li>
+          <li class="option">E. 90</li>
+        </ul>
+        <div class="answer-key">Дұрыс жауап: C</div>
+      </div>
+
+      <!-- 17 -->
+      <div class="test-item">
+        <div class="question">17. Салыстыр: = белгісін қой</div>
+        <ul class="options">
+          <li class="option">A. 63:9 * 45:9</li>
+          <li class="option">B. 9×3 * 4:2</li>
+          <li class="option">C. 54:9 * 3×2</li>
+          <li class="option">D. 4+12 * 5×3</li>
+          <li class="option">E. 27:9 * 6×3</li>
+        </ul>
+        <div class="answer-key">Дұрыс жауап: B = E</div>
+      </div>
+
+      <!-- 18 -->
+      <div class="test-item">
+        <div class="question">18. 356 × 23 мәнін тап</div>
+        <ul class="options">
+          <li class="option">A. 8108</li>
+          <li class="option">B. 8188</li>
+          <li class="option">C. 8818</li>
+          <li class="option">D. 8088</li>
+          <li class="option">E. 8801</li>
+        </ul>
+        <div class="answer-key">Дұрыс жауап: B</div>
+      </div>
+
+      <!-- 19 -->
+      <div class="test-item">
+        <div class="question">19. Жауабы 2100 болатын өрнекті тап</div>
+        <ul class="options">
+          <li class="option">A. 100 × (3×4)</li>
+          <li class="option">B. 20 × (25×5)</li>
+          <li class="option">C. 250 × (4×2)</li>
+          <li class="option">D. 7 × 2 × 3 × 50</li>
+          <li class="option">E. 20 × 3 × 4 × 5</li>
+        </ul>
+        <div class="answer-key">Дұрыс жауап: D</div>
+      </div>
+
+      <!-- 20 -->
+      <div class="test-item">
+        <div class="question">20. Шаршының қабырғасы 5 дм. Оның ауданын тап</div>
+        <ul class="options">
+          <li class="option">A. 20 дм²</li>
+          <li class="option">B. 25 дм²</li>
+          <li class="option">C. 50 дм²</li>
+          <li class="option">D. 100 дм²</li>
+          <li class="option">E. 150 дм²</li>
+        </ul>
+        <div class="answer-key">Дұрыс жауап: B</div>
+      </div>
+
+      <!-- 21 -->
+      <div class="test-item">
+        <div class="question">21. Өрнектің дұрыс мәнін тап: 4680:60</div>
+        <ul class="options">
+          <li class="option">A. 87</li>
+          <li class="option">B. 780</li>
+          <li class="option">C. 708</li>
+          <li class="option">D. 78</li>
+          <li class="option">E. 807</li>
+        </ul>
+        <div class="answer-key">Дұрыс жауап: D</div>
+      </div>
+
+      <!-- 22 -->
+      <div class="test-item">
+        <div class="question">
+          22. 150 кг көкөніс бірнеше дүкенге тең бөлінді. Бірінші дүкенде 20 кг сатылғаннан
+          кейін, 30 кг қалды. Көкөністер неше дүкенге берілді?
+        </div>
+        <ul class="options">
+          <li class="option">A. 150 = X:20 + 30</li>
+          <li class="option">B. 150:X = 0−20</li>
+          <li class="option">C. 150:X = 20 + 30</li>
+          <li class="option">D. 20 + 30:X = 150</li>
+          <li class="option">E. X:30−20 = 150</li>
+        </ul>
+        <div class="answer-key">Дұрыс жауап: A</div>
+      </div>
+
+      <!-- 23 -->
+      <div class="test-item">
+        <div class="question">23. Бір жүз қырық бес мың екі жүз он бір санын тап</div>
+        <ul class="options">
+          <li class="option">A. 1045210</li>
+          <li class="option">B. 1045211</li>
+          <li class="option">C. 1405211</li>
+          <li class="option">D. 145211</li>
+          <li class="option">E. 1045011</li>
+        </ul>
+        <div class="answer-key">Дұрыс жауап: D</div>
+      </div>
+
+      <!-- 24 -->
+      <div class="test-item">
+        <div class="question">
+          24. Тіктөртбұрыштың периметрі 48 см, ені 6 см. Ауданын тап
+        </div>
+        <ul class="options">
+          <li class="option">A. 78 см²</li>
+          <li class="option">B. 84 см²</li>
+          <li class="option">C. 96 см²</li>
+          <li class="option">D. 108 см²</li>
+          <li class="option">E. 118 см²</li>
+        </ul>
+        <div class="answer-key">Дұрыс жауап: D</div>
+      </div>
+
+      <!-- 25 -->
+      <div class="test-item">
+        <div class="question">
+          25. Сатып алушы дүкеннен 3 ақ түсті және 2 көк түсті көйлекті бірдей бағаға
+          сатып алды. Барлығы 4000 теңге жұмсады. Ақ және көк көйлектерге қанша теңге жұмсалды?
+        </div>
+        <ul class="options">
+          <li class="option">A. 2000 және 5000 теңге</li>
+          <li class="option">B. 800 және 800 теңге</li>
+          <li class="option">C. 2400 және 1600 теңге</li>
+          <li class="option">D. 2000 және 5000 теңге</li>
+          <li class="option">E. 299 және 4</li>
+        </ul>
+        <div class="answer-key">Дұрыс жауап: C</div>
+      </div>
+
+      <button type="button" class="test-reset-all">
+        Барлық жауаптарды тазалау
+      </button>
+    </div>
+  </div>
+</article>
+
+<article id="practice" class="section">
+  <h2>Практикалық есептер</h2>
+  <p class="section-subtitle">
+    Мұнда 5-сынып оқушыларына арналған практикалық есептер жинағы берілген.
+    Әр есепті шығарып, жауабыңды тексер.
+  </p>
+
+  <div id="practice-container"></div>
+</article>
+
+
+<article id="geometry" class="section">
+  <!-- ===== 1. Геометрия зертханасы (как было) ===== -->
+  <div class="geometry-lab">
+    <div class="geo-left">
+      <h2>Геометрия зертханасы</h2>
+      <p class="geo-intro">
+        Бұл зертханада негізгі геометриялық фигуралар мен денелерді 3D түрінде көріп,
+        параметрлерін өзгертіп, формулаларын қайталап және шағын тест арқылы
+        өз біліміңді тексере аласың.
+      </p>
+
+      <div class="geo-shapes">
+        <button class="geo-shape-btn active" data-shape="triangle">Үшбұрыш</button>
+        <button class="geo-shape-btn" data-shape="square">Квадрат</button>
+        <button class="geo-shape-btn" data-shape="circle">Дөңгелек</button>
+        <button class="geo-shape-btn" data-shape="cube">Куб</button>
+        <button class="geo-shape-btn" data-shape="box">Параллелепипед</button>
+        <button class="geo-shape-btn" data-shape="prism">Призма</button>
+        <button class="geo-shape-btn" data-shape="pyramid">Пирамида</button>
+        <button class="geo-shape-btn" data-shape="cylinder">Цилиндр</button>
+        <button class="geo-shape-btn" data-shape="cone">Конус</button>
+        <button class="geo-shape-btn" data-shape="sphere">Шар</button>
+      </div>
+
+      <div class="geo-panel">
+        <h3>Параметрлер</h3>
+        <div id="geo-param-list">
+          <!-- параметр слайдерлері JS арқылы қосылады -->
+        </div>
+      </div>
+
+      <div class="geo-toggles">
+        <label>
+          <input type="checkbox" id="geo-toggle-rotate" checked>
+          Автоматты айналу
+        </label>
+        <label>
+          <input type="checkbox" id="geo-toggle-wire">
+          Тор (wireframe)
+        </label>
+      </div>
+    </div>
+
+    <div class="geo-right">
+      <div class="geo-3d-card">
+        <canvas id="geo-main-canvas"></canvas>
+      </div>
+
+      <div class="geo-info-card">
+        <h3 id="geo-shape-title">Үшбұрыш</h3>
+        <p id="geo-shape-description">
+          Үшбұрыш – үш қабырғасы және үш бұрышы бар жазық фигура. Бұл зертханада
+          теңқабырғалы үшбұрыш қарастырылады.
+        </p>
+        <div class="geo-formula-block">
+          <div id="geo-formula-main"></div>
+          <div id="geo-formula-extra"></div>
+        </div>
+      </div>
+
+      <div class="geo-quiz-card">
+        <h3>Жылдам жаттығу</h3>
+        <p id="geo-quiz-question">
+          Фигура параметрлерін өзгертіп көр де, сұраққа жауап бер.
+        </p>
+        <div class="geo-quiz-row">
+          <input
+            type="text"
+            id="geo-quiz-answer"
+            placeholder="Жауабын бүтін санмен жаз"
+          >
+          <button id="geo-quiz-check">Тексеру</button>
+        </div>
+        <div id="geo-quiz-feedback"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 2. 3D конструктор: құрама дене (ОТДЕЛЬНЫЙ блок внизу) ===== -->
+  <div class="geo-builder" id="geo-builder">
+    <div class="geo-builder-left">
+      <h3>3D конструктор: құрама дене</h3>
+      <p class="geo-builder-intro">
+        Кубиктерден құрама фигура құрастыр. Параметрлерді өзгерткен сайын
+        фигураның өлшемі және куб саны өзгереді.
+      </p>
+
+      <div class="geo-builder-controls">
+        <div class="geo-builder-row">
+          <label for="gb-x">Ұзындығы (x қабат)</label>
+          <input id="gb-x" type="range" min="1" max="5" step="1" value="3">
+          <span class="geo-builder-value" id="gb-x-val">3</span>
+        </div>
+
+        <div class="geo-builder-row">
+          <label for="gb-y">Биіктігі (y қабат)</label>
+          <input id="gb-y" type="range" min="1" max="5" step="1" value="2">
+          <span class="geo-builder-value" id="gb-y-val">2</span>
+        </div>
+
+        <div class="geo-builder-row">
+          <label for="gb-z">Ені (z қабат)</label>
+          <input id="gb-z" type="range" min="1" max="5" step="1" value="2">
+          <span class="geo-builder-value" id="gb-z-val">2</span>
+        </div>
+      </div>
+
+      <div class="geo-builder-hint">
+        V = x · y · z  — кубиктердің жалпы саны.
+        Параметрлерді жылжытып, көлемнің қалай өзгеретінін байқа.
+      </div>
+    </div>
+
+    <div class="geo-builder-right">
+      <div class="geo-builder-canvas-wrap">
+        <canvas id="geo-builder-canvas"></canvas>
+      </div>
+
+      <div class="geo-builder-summary">
+        <div>
+          Өлшемі: <strong><span id="gb-size-label">3 × 2 × 2</span></strong>
+        </div>
+        <div>
+          Куб саны: <strong><span id="gb-count">12</span></strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+<article id="glossary" class="section">
+  <div class="glossary-wrapper">
+    <div class="glossary-header">
+      <h2>Глоссарий</h2>
+      <p>
+        Мұнда 5-сынып математикасына қатысты негізгі терминдер жиналған.
+        Сол жақтан әріпті таңда, ал оң жақта сол әріптен басталатын терминдер шығады.
+        Төменде терминдерді флеш-карточка түрінде қайталауға болады.
+      </p>
+    </div>
+
+    <div class="glossary-main">
+      <aside class="glossary-sidebar">
+        <h3>Әріп бойынша</h3>
+        <div id="glossary-letters" class="glossary-letters">
+          <!-- JS арқылы әріп батырмалары қосылады -->
+        </div>
+      </aside>
+
+      <section class="glossary-list">
+        <h3>Терминдер тізімі</h3>
+        <div id="glossary-cards" class="glossary-cards">
+          <!-- JS арқылы карточкалар қосылады -->
+        </div>
+      </section>
+    </div>
+
+    <div class="glossary-flashcards">
+      <div class="flashcard-background">
+        <span class="bg-shape bg-star">★</span>
+        <span class="bg-shape bg-star2">★</span>
+        <span class="bg-shape bg-penguin">🐧</span>
+        <span class="bg-shape bg-bear">🐻</span>
+        <span class="bg-shape bg-rabbit">🐰</span>
+      </div>
+
+      <div class="flashcard-shell">
+        <h3>Флеш-карточкалар</h3>
+        <p class="flashcard-intro">
+          Карточканы бас – алдымен термин, кейін түсіндірмесі көрсетіледі. Түстер мен
+          анимация бұны қызық ойынға айналдырады.
+        </p>
+
+        <div id="glossary-flashcard" class="flashcard">
+          <div class="flashcard-inner">
+            <div class="flashcard-face flashcard-front">
+              <div class="flashcard-label">Термин</div>
+              <div id="flashcard-front" class="flashcard-text"></div>
+            </div>
+            <div class="flashcard-face flashcard-back">
+              <div class="flashcard-label">Түсіндірме</div>
+              <div id="flashcard-back" class="flashcard-text"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flashcard-controls">
+          <button id="flash-prev">Алдыңғы</button>
+          <button id="flash-random">Кездейсоқ</button>
+          <button id="flash-next">Келесі</button>
+        </div>
+        <div class="flashcard-hint">
+          Кеңес: сол жақтағы әріпті өзгерткенде флеш-карточкалар сол әріптегі терминдермен
+          жаңарады. Егер терминдер аз болса, барлық глоссарийден кездейсоқ таңдалады.
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Қосымша анимациялық ақпараттық блоктар -->
+<div class="glossary-extra">
+  <h3>Негізгі математикалық бөлімдер</h3>
+  <p class="glossary-extra-subtitle">
+    Төменде 5-сынып математикасының маңызды тақырыптары бойынша қысқаша еске түсіру блоктары берілген.
+    Әр карточка – шағын «еске салғыш».
+  </p>
+
+  <div class="glossary-extra-grid">
+    <div class="glossary-extra-card extra-num">
+      <div class="extra-icon">🔢</div>
+      <h4>Натурал сандар</h4>
+      <p>
+        1, 2, 3, ... – санау үшін қолданылатын сандар. Нөл кейде бөлек қарастырылады.
+        Ондық жүйеде жазылады.
+      </p>
+    </div>
+
+    <div class="glossary-extra-card extra-decimal">
+      <div class="extra-icon">💠</div>
+      <h4>Ондық бөлшектер</h4>
+      <p>
+        Нүктеден кейін жазылатын бөлшектер: 0,5; 3,14; 2,75. Оң жақтағы әр цифр – ондық, жүздік,
+        мыңдық үлесі.
+      </p>
+    </div>
+
+    <div class="glossary-extra-card extra-percent">
+      <div class="extra-icon">📊</div>
+      <h4>Проценттер</h4>
+      <p>
+        Бүтіннің жүзден бір бөлігі: 1% = 1/100. 25% – төрттен бірге жуық,
+        50% – жартысы, 100% – толық бөлік.
+      </p>
+    </div>
+
+    <div class="glossary-extra-card extra-geo">
+      <div class="extra-icon">📐</div>
+      <h4>Геометрия ұғымдары</h4>
+      <p>
+        Нүкте, түзу, кесінді, бұрыш, үшбұрыш, төртбұрыш, шеңбер – фигураларды құрайтын негізгі элементтер.
+      </p>
+    </div>
+
+    <div class="glossary-extra-card extra-func">
+      <div class="extra-icon">📈</div>
+      <h4>Функция және график</h4>
+      <p>
+        Әрбір x мәніне бір y мәні сәйкес келсе, y – x-тің функциясы. График – сол тәуелділікті көрсететін
+        сызық немесе қисық.
+      </p>
+    </div>
+
+    <div class="glossary-extra-card extra-game">
+      <div class="extra-icon">🎮</div>
+      <h4>Математикалық ойындар</h4>
+      <p>
+        Ережесі бар математикалық тапсырмалар: логикалық, тез есептеу, салыстыру. Ойын арқылы есеп шығару
+        – білімді бекітудің қызықты жолы.
+      </p>
+    </div>
+  </div>
+</div>
+
+</article>
+
+<article id="interactive" class="section">
+  <div class="interactive-wrapper">
+
+    <!-- 1-БЛОК: 3D ОЙЫН -->
+    <h2>Интерактивті 3D ойын</h2>
+    <p class="interactive-intro">
+      Бұл бөлімде 5-сынып оқушылары үшін шағын 3D ойын берілген. Персонажды басқару
+      арқылы «жарық монеталарды» жинап, ұпай жинауға болады. Ойын жай көңіл көтеру
+      үшін, математикадан бөлек.
+    </p>
+
+    <div id="game3d-container">
+      <div class="game3d-overlay">
+        <div class="game3d-status">
+          Ұпай: <span id="game3d-score">0</span>
+        </div>
+        <div class="game3d-help">
+          Басқару: WASD немесе бағыты &larr; &uarr; &darr; &rarr;
+        </div>
+      </div>
+      <!-- мұнда Three.js canvas қосады -->
+    </div>
+
+    <!-- 2-БЛОК: ANGRY BIRDS СТИЛІНДЕ -->
+    <div class="interactive-birds">
+      <h2>2D «Құстар мен қамал» ойыны (Angry Birds стилі)</h2>
+      <p class="interactive-intro">
+        Құсты тышқанмен кейін тартып, жіберіңіз – ол ұшады да, мұнарадағы блоктарды
+        құлатуға тырысады. Барлық блоктарды құлатқан сайын жаңа мұнара пайда болады.
+      </p>
+
+      <div class="bird-game-box">
+        <div class="bird-game-overlay">
+          <div class="bird-score-tag">
+            Ұпай: <span id="bird-score">0</span>
+          </div>
+          <div class="bird-help-tag">
+            Басқару: құсты тышқанмен тартып, жіберіңіз
+          </div>
+        </div>
+        <canvas id="bird-game-canvas"></canvas>
+      </div>
+    </div>
+
+    <!-- 3-БЛОК: MINECRAFT-СТИЛЬ ҚҰРЫЛЫС ОЙЫНЫ -->
+    <div class="interactive-mc">
+      <h2>3D құрылыс ойыны (Minecraft стилі)</h2>
+      <p class="interactive-intro">
+        Бұл ойын арқылы шағын 3D әлемде блоктардан құрылыс салуға болады. Блок түрін
+        таңдап, сол жақ батырмамен қойып, оң жақ батырмамен жоясыз.
+      </p>
+
+      <div class="mc-game-box">
+        <div class="mc-overlay">
+          <div class="mc-toolbar">
+            Блок түрі:
+            <button class="mc-block-button active" data-type="grass">Шөп</button>
+            <button class="mc-block-button" data-type="stone">Тас</button>
+            <button class="mc-block-button" data-type="water">Су</button>
+          </div>
+          <div class="mc-help">
+            Сол жақпен – блок қою, оң жақпен немесе Ctrl+сол жақ – блок жою.
+          </div>
+        </div>
+        <div id="mc-container"></div>
+      </div>
+    </div>
+
+</article>
+
+<article id="math-game" class="section">
+  <div class="math-games">
+
+    <!-- 1. Қысқы процент ойыны (как уже было) -->
+    <div class="winter-game">
+      <div class="winter-game-inner">
+        <div class="winter-game-header">
+          <button class="winter-circle-btn" type="button" aria-hidden="true">⟵</button>
+
+          <div class="winter-progress">
+            <div class="winter-progress-bar">
+              <div id="winter-progress-fill" class="winter-progress-fill"></div>
+            </div>
+            <div class="winter-score">
+              <span id="winter-score">0</span> ★
+            </div>
+          </div>
+
+          <button id="winter-sound-toggle" class="winter-circle-btn" type="button" aria-label="Дыбыс">
+            🔊
+          </button>
+        </div>
+
+        <div class="winter-task-row">
+          <div class="winter-character">
+            <div id="winter-speech" class="winter-bubble">Жаңа тапсырма!</div>
+            <div class="winter-avatar">
+              <img src="img/пушистый персонаж.jpg" alt="Милей қыстық кейіпкер">
+            </div>
+          </div>
+
+          <div class="winter-task-card">
+            <div class="winter-task-line">
+              Баға өзгергенге дейін:
+              <span id="winter-price-before">1 200</span> ₸
+            </div>
+            <div class="winter-task-line">
+              Өзгеру пайызы:
+              <span id="winter-percent">25</span> %
+            </div>
+            <div class="winter-task-line">
+              Өзгеру мөлшері:
+              <span id="winter-diff">300</span> ₸
+            </div>
+            <div class="winter-task-line">
+              Жаңа баға:
+              <input id="winter-answer" type="text" inputmode="numeric" autocomplete="off" placeholder="?" />
+              ₸
+            </div>
+            <div id="winter-feedback" class="winter-feedback"></div>
+          </div>
+        </div>
+
+        <div class="winter-bottom">
+          <div id="winter-keypad" class="winter-keypad">
+            <button data-key="1">1</button>
+            <button data-key="2">2</button>
+            <button data-key="3">3</button>
+            <button data-key="4">4</button>
+            <button data-key="5">5</button>
+            <button data-key="6">6</button>
+            <button data-key="7">7</button>
+            <button data-key="8">8</button>
+            <button data-key="9">9</button>
+            <button data-key="0" class="wide">0</button>
+            <button data-key="back" class="wide">⌫</button>
+          </div>
+
+          <div class="winter-actions">
+            <button id="winter-skip" class="winter-secondary">Өткізіп жіберу</button>
+            <button id="winter-check" class="winter-primary">Тексеру</button>
+          </div>
+        </div>
+
+        <div class="winter-decor">
+          <div class="winter-snow-layer"></div>
+          <div class="winter-tree"></div>
+          <div class="winter-snowman">
+            <div class="snowman-body snowman-body-big"></div>
+            <div class="snowman-body snowman-body-small"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Эмоциялы теңдеулер ойыны -->
+    <div class="emoji-game">
+      <div class="emoji-game-inner">
+        <h3>Эмоциялы теңдеулер</h3>
+        <p class="emoji-game-intro">
+          Суреттердің орнына сандар қойылған. Әр жолдағы өрнектерге қарап, белгісіз
+          жауапты тап. Бір тапсырма – бір дұрыс жауап.
+        </p>
+
+        <div class="emoji-card">
+          <div class="emoji-puzzle-header">
+            Тапсырма <span id="emoji-index">1</span> / <span id="emoji-total">12</span>
+          </div>
+          <div id="emoji-puzzle-text" class="emoji-puzzle-text">
+            <!-- JS вставит текст -->
+          </div>
+
+          <div class="emoji-answer-row">
+            <label for="emoji-answer">Жауап:</label>
+            <input id="emoji-answer" type="text" inputmode="numeric" autocomplete="off" placeholder="?" />
+            <button id="emoji-check">Тексеру</button>
+          </div>
+          <div id="emoji-feedback" class="emoji-feedback"></div>
+
+          <div class="emoji-nav">
+            <button id="emoji-prev">Алдыңғы</button>
+            <button id="emoji-next">Келесі</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+      <!-- 3. Жылдам есеп ойыны -->
+    <div class="quick-game">
+      <div class="quick-game-inner math-card">
+        <h3>Жылдам есеп</h3>
+        <p class="math-card-intro">
+          Қосу, азайту және көбейтуді жаттайық. Берілген өрнектің мәнін тез есептеп көр.
+        </p>
+
+        <div class="quick-task">
+          <div id="quick-expression" class="quick-expression">8 × 7 = ?</div>
+          <div class="quick-answer-row">
+            <label for="quick-answer">Жауап:</label>
+            <input id="quick-answer" type="text" inputmode="numeric" autocomplete="off" placeholder="?" />
+            <button id="quick-check">Тексеру</button>
+          </div>
+          <div id="quick-feedback" class="math-feedback"></div>
+          <div class="math-score-row">
+            Дұрыс жауаптар: <span id="quick-score">0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. Дұрыс па, бұрыс па? -->
+    <div class="tf-game">
+      <div class="tf-game-inner math-card">
+        <h3>Дұрыс па, бұрыс па?</h3>
+        <p class="math-card-intro">
+          Теңдікті қарап, ол дұрыс па, әлде бұрыс па екенін таңда. Кейде пайыздар немесе бөлшектер де кездеседі.
+        </p>
+
+        <div class="tf-task">
+          <div id="tf-question" class="tf-question">5 + 7 = 11</div>
+          <div class="tf-buttons">
+            <button id="tf-true">Дұрыс</button>
+            <button id="tf-false">Бұрыс</button>
+          </div>
+          <div id="tf-feedback" class="math-feedback"></div>
+          <div class="math-score-row">
+            Дұрыс жауаптар: <span id="tf-score">0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. Сандарды салыстыр -->
+    <div class="compare-game">
+      <div class="compare-game-inner math-card">
+        <h3>Сандарды салыстыр</h3>
+        <p class="math-card-intro">
+          Екі санды салыстыр да, қайсы үлкен екенін немесе тең екенін белгіле.
+        </p>
+
+        <div class="compare-task">
+          <div class="compare-numbers">
+            <span id="cmp-left">45</span>
+            <span id="cmp-sign">?</span>
+            <span id="cmp-right">72</span>
+          </div>
+          <div class="compare-buttons">
+            <button id="cmp-less">&lt;</button>
+            <button id="cmp-equal">=</button>
+            <button id="cmp-greater">&gt;</button>
+          </div>
+          <div id="cmp-feedback" class="math-feedback"></div>
+          <div class="math-score-row">
+            Дұрыс жауаптар: <span id="cmp-score">0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</article>
+
+
+
+<article id="games" class="section">
+  <div class="gamify-wrapper">
+    <div class="gamify-emoji-bg">
+      <span>🎮</span>
+      <span>⭐</span>
+      <span>🧠</span>
+      <span>📊</span>
+      <span>🎲</span>
+      <span>🚀</span>
+      <span>🐧</span>
+    </div>
+
+    <!-- Лазерный блок уровня -->
+    <div class="gamify-level">
+      <div class="gamify-level-laser gamify-level-laser-top"></div>
+      <div class="gamify-level-laser gamify-level-laser-bottom"></div>
+
+      <div class="gamify-level-main">
+        <div class="gamify-level-label">Деңгей</div>
+        <div class="gamify-level-badge">
+          LV <span id="gf-level">1</span>
+        </div>
+        <div class="gamify-level-xp-row">
+          XP:
+          <span id="gf-xp">0</span> /
+          <span id="gf-xp-max">100</span>
+        </div>
+        <div class="gamify-level-bar">
+          <div id="gf-level-bar-fill" class="gamify-level-bar-fill"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Статистика по ойындарға -->
+    <div class="gamify-stats">
+      <div class="gamify-stat-card">
+        <div class="stat-label">Ойындар саны</div>
+        <div id="gf-games" class="stat-value">0</div>
+      </div>
+      <div class="gamify-stat-card">
+        <div class="stat-label">Барлық дұрыс жауаптар</div>
+        <div id="gf-total" class="stat-value">0</div>
+      </div>
+      <div class="gamify-stat-card">
+        <div class="stat-label">Серия</div>
+        <div id="gf-streak" class="stat-value">x1</div>
+      </div>
+    </div>
+
+    <!-- Статистика әр ойын бойынша -->
+    <div class="gamify-stat-details">
+      <div class="stat-detail">
+        <span>❄ Қысқы процент ойыны</span>
+        <span id="gf-stat-winter">0</span>
+      </div>
+      <div class="stat-detail">
+        <span>⚡ Жылдам есеп</span>
+        <span id="gf-stat-quick">0</span>
+      </div>
+      <div class="stat-detail">
+        <span>🤔 Дұрыс па, бұрыс па?</span>
+        <span id="gf-stat-tf">0</span>
+      </div>
+      <div class="stat-detail">
+        <span>⚖️ Сандарды салыстыр</span>
+        <span id="gf-stat-cmp">0</span>
+      </div>
+    </div>
+
+    <!-- Достижения -->
+    <div class="gamify-achievements">
+      <h3>Достижения</h3>
+
+      <div class="ach-grid">
+        <div class="ach-card" data-target="winter" data-goal="10">
+          <div class="ach-emoji">❄</div>
+          <div class="ach-title">Қысқы шебер</div>
+          <div class="ach-desc">Қысқы процент ойынында 10 дұрыс жауап ал.</div>
+          <div class="ach-progress">
+            <div class="ach-progress-fill"></div>
+          </div>
+          <div class="ach-progress-text">
+            <span class="ach-progress-value">0</span> / 10
+          </div>
+        </div>
+
+        <div class="ach-card" data-target="quick" data-goal="20">
+          <div class="ach-emoji">⚡</div>
+          <div class="ach-title">Жылдам есептеуші</div>
+          <div class="ach-desc">«Жылдам есеп» ойынында 20 дұрыс жауап жина.</div>
+          <div class="ach-progress">
+            <div class="ach-progress-fill"></div>
+          </div>
+          <div class="ach-progress-text">
+            <span class="ach-progress-value">0</span> / 20
+          </div>
+        </div>
+
+        <div class="ach-card" data-target="tf" data-goal="15">
+          <div class="ach-emoji">🤔</div>
+          <div class="ach-title">Логика шебері</div>
+          <div class="ach-desc">«Дұрыс па, бұрыс па?» ойынында 15 дұрыс таңдау жаса.</div>
+          <div class="ach-progress">
+            <div class="ach-progress-fill"></div>
+          </div>
+          <div class="ach-progress-text">
+            <span class="ach-progress-value">0</span> / 15
+          </div>
+        </div>
+
+        <div class="ach-card" data-target="cmp" data-goal="15">
+          <div class="ach-emoji">⚖️</div>
+          <div class="ach-title">Салыстыру чемпионы</div>
+          <div class="ach-desc">Сандарды салыстыру ойынында 15 дұрыс жауап ал.</div>
+          <div class="ach-progress">
+            <div class="ach-progress-fill"></div>
+          </div>
+          <div class="ach-progress-text">
+            <span class="ach-progress-value">0</span> / 15
+          </div>
+        </div>
+
+        <div class="ach-card" data-target="combo" data-goal="50">
+          <div class="ach-emoji">🔥</div>
+          <div class="ach-title">Комбо-ойыншы</div>
+          <div class="ach-desc">Барлық ойындар бойынша 50 дұрыс жауап жина.</div>
+          <div class="ach-progress">
+            <div class="ach-progress-fill"></div>
+          </div>
+          <div class="ach-progress-text">
+            <span class="ach-progress-value">0</span> / 50
+          </div>
+        </div>
+
+        <div class="ach-card" data-target="marathon" data-goal="100">
+          <div class="ach-emoji">🚀</div>
+          <div class="ach-title">Математика марафоны</div>
+          <div class="ach-desc">Барлық ойындарда 100 дұрыс жауапқа қол жеткіз.</div>
+          <div class="ach-progress">
+            <div class="ach-progress-fill"></div>
+          </div>
+          <div class="ach-progress-text">
+            <span class="ach-progress-value">0</span> / 100
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+<article id="videos" class="section">
+  <div class="videos-layout">
+
+    <!-- Левая колонка: QR -->
+    <div class="videos-qr">
+      <div class="videos-qr-card">
+        <h3>YouTube арнасының QR-коды</h3>
+        <div class="videos-qr-img">
+          <a href="https://www.youtube.com/channel/UCaZFwyjoJU-go0N2AQn6cjQ" target="_blank">
+            <img
+              src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=https%3A%2F%2Fwww.youtube.com%2Fchannel%2FUCaZFwyjoJU-go0N2AQn6cjQ"
+              alt="YouTube арнасының QR-коды">
+          </a>
+        </div>
+        <div class="videos-qr-text">
+          <p>Телефоныңмен QR-кодты сканерлеу арқылы 5-сыныпқа арналған математикалық видеосабақтарды бірден арнадан көре аласың.</p>
+          <a class="videos-channel-btn"
+             href="https://www.youtube.com/channel/UCaZFwyjoJU-go0N2AQn6cjQ"
+             target="_blank">
+            <i class="fa-brands fa-youtube"></i>
+            Арнаға өту
+          </a>
+          <div class="videos-qr-note">
+            Кеңес: видеосабақтарды сабақта да, үйде де қарауға болады.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Правая колонка: 4 видео -->
+    <div class="videos-grid">
+      <div class="video-card">
+        <div class="video-title">1-видео: Натурал сандар</div>
+        <div class="video-frame">
+          <iframe
+            src="https://www.youtube.com/embed/VIDEO_ID_1?rel=0"
+            title="Натурал сандар"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <div class="video-title">2-видео: Ондық бөлшектер</div>
+        <div class="video-frame">
+          <iframe
+            src="https://www.youtube.com/embed/VIDEO_ID_2?rel=0"
+            title="Ондық бөлшектер"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <div class="video-title">3-видео: Проценттер</div>
+        <div class="video-frame">
+          <iframe
+            src="https://www.youtube.com/embed/VIDEO_ID_3?rel=0"
+            title="Проценттер"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <div class="video-title">4-видео: Көпбұрыштар</div>
+        <div class="video-frame">
+          <iframe
+            src="https://www.youtube.com/embed/VIDEO_ID_4?rel=0"
+            title="Көпбұрыштар"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</article>
+
+  <!-- ===== конец карточки контента, секции и main ===== -->
+  </div> <!-- .content-card -->
+</section> <!-- .content -->
+</main>   <!-- .layout -->
+</div>    <!-- .app -->
+
+<!-- JS кітапханалар -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r152/three.min.js"></script>
+<script src="script.js"></script>
+<script src="libs/three.min.js"></script>
+</body>
+</html>
